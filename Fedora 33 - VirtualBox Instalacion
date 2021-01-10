@@ -31,3 +31,6 @@
 
 	# Agregar nuestro usuario al usuario vboxusers que creo VirtualBox
 	$ sudo usermod -a -G vboxusers $username
+	
+	# Enlace de descarga del paquete que genere
+	https://drive.google.com/file/d/1CfBbpcATQAKapQfrErTTpxr60tCyWHfp/view?usp=sharing
