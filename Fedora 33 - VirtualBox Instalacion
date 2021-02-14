@@ -29,6 +29,9 @@
 	# Instalación de paquete reconstruido de Python
 	$ sudo dnf install ~/rpmbuild/RPMS/x86_64/VirtualBox-6.1-6.1.16_140961_fedora33-1.x86_64.rpm
 
+	# Construir modulos del Kernel para Virtual Box
+	$ sudo /usr/lib/virtualbox/vboxdrv.sh setup
+	
 	# Agregar nuestro usuario al usuario vboxusers que creo VirtualBox
 	$ sudo usermod -a -G vboxusers $username
 	
