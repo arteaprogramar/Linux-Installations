@@ -16,7 +16,7 @@ $ https://download.virtualbox.org/virtualbox/6.1.16/VirtualBox-6.1-6.1.16_140961
 $ sudo dnf install VirtualBox-6.1-6.1.16_140961_fedora32-1.x86_64.rpm
 ```
 
-# Salida de error
+### Salida de error
 ```
 ... 
 nothing provides python(abi) = 3.8 needed by VirtualBox-6.1-6.1.16_140961_fedora32-1.x86_64
