@@ -1,4 +1,6 @@
-## Descargar VirtualBox para Fedora 32
+## Reconstrucción del paquete RMP de VirtualBox para Fedora 33+
+
+### Descargar el paquete RPM de VirtualBox para Fedora 32
 
 #### Abrir Terminal y movernos a carpeta de Descargar
 
@@ -23,7 +25,7 @@ nothing provides python(abi) = 3.8 needed by VirtualBox-6.1-6.1.16_140961_fedora
 ...
 ```
 
-## Corregir error con los siguientes pasos
+### Corregir error con los siguientes pasos
 
 #### Instalar RMPRebuild Package
 ```
