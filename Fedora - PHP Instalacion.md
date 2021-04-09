@@ -1,4 +1,4 @@
-## Como INSTALAR #PHP 7.3 y el Servidor #Apache en #Fedora
+## Como instalar Servidor Apache y PHP en Fedora 29 o superior
 
 El objetivo de las instrucciones es mostrar como se realiza la instalación del servidor Apache & PHP 7.3 en Fedora 28 o superior.
 
