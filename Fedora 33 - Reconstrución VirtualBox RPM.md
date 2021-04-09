@@ -39,7 +39,8 @@ $ sudo rpmrebuild --change-spec-preamble='sed -e "s/6.1.16_140961_fedora32/6.1.1
 
 #### Instalar dependecias necesarias para VirtualBox
 ```
-$ sudo dnf groupinstall "Development Tools" && sudo dnf groupinstall "Development Libraries"
+$ sudo dnf groupinstall "Development Tools"
+$ sudo dnf groupinstall "Development Libraries"
 $ sudo dnf install kernel-headers kernel-devel dkms gcc make perl bzip2 binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms qt5-qtx11extras libxkbcommon
 ```
 
