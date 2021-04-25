@@ -49,14 +49,22 @@ $ sudo yum install pgadmin4
 Para tener acceso remoto a PostgreSQL es necesario editar dos archivos de configuración: postgresql.conf y pg_hba.conf
 
 ```
-# postgresql.conf
+# Configuración del archivo "postgresql.conf" mediante "nano"
 $ sudo nano /var/lib/pgsql/12/data/postgresql.conf
-# Buscamos la linea que dice  listen_addresses=’listen’ y lo descomentamos
+
+# Se buscará la linea con la  siguiente instrucción  "  #listen_addresses=’listen’  "
+# Se modificara de la siguiente manera
 listen_addresses = '*'
 
-# pg_hba.conf
+# Configuración del archivo "pg_hba.conf" mediante "nano"
 $ sudo vi /var/lib/pgsql/11/data/pg_hba.conf
-# alteramos una linea para que sea del tipo md5. Y aidcionamos otra linea que contenga el IP desde donde vamos a hacer la conexión remota (por ejemplo: 192.168.0.77).
 
+# Se modificara la linea que contiene la conexion de "IPv4"
+# host         all         all         127.0.0.1/32         ident
+# A 
+host         all         all         127.0.0.1/32         md5
+
+# Además se agregará una nueva conexión debajo de la linea anterior con la IP del Servidor POstgresql
+host         all         all         xxx.xxx.xxx.xxx/32   md5
 
 ```
