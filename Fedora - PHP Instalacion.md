@@ -5,6 +5,11 @@ El objetivo de las instrucciones es mostrar como se realiza la instalación del 
 ### Requisitos
 Instalación de "REMI Repository"
 
+##### Add Remi repository to Fedora 34:
+```
+➡ dnf -y install http://rpms.remirepo.net/fedora/remi-release-34.rpm
+```
+
 ##### Add Remi repository to Fedora 33:
 ```
 ➡ dnf -y install http://rpms.remirepo.net/fedora/remi-release-33.rpm
