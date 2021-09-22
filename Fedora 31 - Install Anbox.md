@@ -1,4 +1,4 @@
-### Instalación de Anbox en Fedora 34
+### Instalación de Anbox en Fedora 31
 
 Requerimientos:
 
