@@ -1,4 +1,4 @@
-## Instalación de VirtualBox en AlmaLinux | Centos | RHEL | Oracle (8.3)
+## RedHat Family 8+ | Instalación de VirtualBox 
 
 #### Ingresar en modo superusuario
 ```
