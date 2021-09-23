@@ -11,6 +11,15 @@ Requisito
 
 ### Instalación de mysql-community.repo
 
+- Descargar e instalar la llave de fima de paquetes
+
+```
+
+$ sudo wget http://repo.mysql.com/RPM-GPG-KEY-mysql -P /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+
+```
+
+
 - Crear `mysql-community.repo` en la siguiente ruta `/etc/yum.repos.d/`
 
 ```
@@ -25,7 +34,7 @@ name=MySQL 5.7 Community Server
 baseurl=http://repo.mysql.com/yum/mysql-5.7-community/fc/31/$basearch/
 enabled=1
 gpgcheck=1
-# gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
 ```
 
