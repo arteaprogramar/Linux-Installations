@@ -11,23 +11,30 @@ Requisito
 
 ### Instalación de mysql-community.repo
 
-- Descargar e instalar la llave de fima de paquetes
+- Descargar e instalar MySQL Repository
 
 ```
 
-$ sudo wget http://repo.mysql.com/RPM-GPG-KEY-mysql -P /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+$ sudo dnf install http://repo.mysql.com/mysql80-community-release-fc34.rpm
 
 ```
 
 
-- Crear `mysql-community.repo` en la siguiente ruta `/etc/yum.repos.d/`
+- Modificar `mysql-community.repo` en la siguiente ruta `/etc/yum.repos.d/mysql-community.repo`
 
 ```
 
 $ sudo nano  /etc/yum.repos.d/mysql-community.repo
 
-## Agregar el siguiente contenido
+# Quitar
+[mysql80-community]
+name=MySQL 8.0 Community Server
+baseurl=http://repo.mysql.com/yum/mysql-8.0-community/fc/$releasever/$basearch/
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
+# Reemplazar por
 # Enable to use MySQL 5.7
 [mysql57-community]
 name=MySQL 5.7 Community Server
