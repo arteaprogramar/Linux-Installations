@@ -3,6 +3,7 @@
 
 Documentación
 - [MySQL Workbench on Linux (RPM)](https://dev.mysql.com/doc/workbench/en/wb-installing-linux.html#wb-installing-linux-installing-rpm)
+- [MySQL Workbench from pkgs.org](https://pkgs.org/search/?q=mysql-workbench)
 
 Requisito
 - Acceso Root
