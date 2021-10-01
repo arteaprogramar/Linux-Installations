@@ -2,7 +2,7 @@
 
 El objetivo de esta publicación es mostrarte como puedes instalar PHP 7.4 con el Servidor Apache.
 
-### Requesitos
+### Requisitos
 - Acceso administrativo
 - Tener instalado [**gedit**](https://wiki.gnome.org/Apps/Gedit) o cualquier otro editor de texto como el paquete **nano** para la terminal.
 
