@@ -63,7 +63,7 @@ Instalación de PHP 7.4
 Instalación de PHP Extensions
 
 ```
-  $ sudo pacman -S php7-apache, php7-cgi, php7-dblib, php7-embed, php7-enchant, php7-fpm, php7-gd, php7-imap, php7-intl, php7-odbc, php7-pgsql, php7-phpdbg, php7-pspell, php7-snmp, php7-sodium, php7-sqlite, php7-tidy, php7-xsl php7-mongodb php7-memcache
+  $ sudo pacman -S php7-apache php7-cgi php7-dblib php7-embed php7-enchant php7-fpm php7-gd php7-imap php7-intl php7-odbc php7-pgsql php7-phpdbg php7-pspell php7-snmp php7-sodium php7-sqlite php7-tidy php7-xsl php7-mongodb php7-memcache   
 ```
 
 Configuración
