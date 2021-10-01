@@ -26,7 +26,6 @@ Configuracion: Se editará el archivo `/etc/httpd/conf/httpd.conf` mediante **na
 
 Abierto el archivo se buscará la siguiente linea `LoadModule unique_id_module modules/mod_unique_id.so` y se procederá a comentarla si aun no lo esta, quedando de la siguiente forma
 
-
 ```
   [...]
   # LoadModule unique_id_module modules/mod_unique_id.so
@@ -77,6 +76,15 @@ Se modificara el siguiente archivo `/etc/httpd/conf/httpd.conf` mediante **nano*
   
   ## Para abrir el archivo con gedit
   $ sudo gedit /etc/httpd/conf/httpd.conf
+```
+
+
+Abierto el archivo se buscará la siguiente linea `LoadModule mpm_event_module modules/mod_mpm_event.so` y se procederá a comentarla si aun no lo esta, quedando de la siguiente forma
+
+```
+  [...]
+  #LoadModule mpm_event_module modules/mod_mpm_event.so
+  [...]
 ```
 
 Se agregaran las siguientes lineas al final del archivo
