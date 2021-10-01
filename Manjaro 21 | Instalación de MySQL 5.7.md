@@ -1,4 +1,4 @@
-### Instalación de MySQL 5.7 en Manjaro o ArchLinux
+## Instalación de MySQL 5.7 en Manjaro o ArchLinux
 
 El objetivo de esta publicación es ayudarte a instalar MySQL 5.7 siguiendo la documentación oficial de MySQL Dev.
 
