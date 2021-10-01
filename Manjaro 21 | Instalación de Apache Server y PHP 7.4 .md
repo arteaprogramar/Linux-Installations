@@ -22,7 +22,6 @@ Configuracion: Se editará el archivo `/etc/httpd/conf/httpd.conf` mediante **na
   
   ## Para abrir el archivo con gedit
   $ sudo gedit /etc/httpd/conf/httpd.conf
-
 ```
 
 Abierto el archivo se buscará la siguiente linea `LoadModule unique_id_module modules/mod_unique_id.so` y se procederá a comentarla si aun no lo esta, quedando de la siguiente forma
@@ -32,7 +31,6 @@ Abierto el archivo se buscará la siguiente linea `LoadModule unique_id_module m
   [...]
   # LoadModule unique_id_module modules/mod_unique_id.so
   [...]
-
 ```
 
 Ahora solo guarde los cambio y proceda a iniciar el Apache Server
@@ -42,5 +40,4 @@ Ahora solo guarde los cambio y proceda a iniciar el Apache Server
   
   ## Comprobar estado de Apache Server
   $ sudo systemctl start httpd
-
 ```
