@@ -116,10 +116,10 @@ Se agregaran las siguientes lineas al final del archivo
 Reinicie el Apache Server
 
 ```
-  $ sudo systemctl start httpd
+  $ sudo systemctl restart httpd
   
   ## Comprobar estado de Apache Server
-  $ sudo systemctl start httpd
+  $ sudo systemctl status httpd
 ```
 
 ### Testeo
