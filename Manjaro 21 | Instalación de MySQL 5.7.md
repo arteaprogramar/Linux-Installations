@@ -20,7 +20,7 @@ Antes o durante la instalación de MySQL es necesario instalar los siguientes pa
 ```
 $ sudo pacman -S libaio
 $ sudo pacman -S numactl
-$ sudo yay -S ncurses5-compat-libs
+$ yay -S ncurses5-compat-libs
 ```
 
 ### Importante
