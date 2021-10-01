@@ -65,7 +65,6 @@ Instalación de PHP Extensions
 
 ```
   $ sudo pacman -S php7-mongodb php7-cgi php7-apache php7-fpm php7-gd php7-pgsql php7-memcache php7-sqlite
-
 ```
 
 Configuración
