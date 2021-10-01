@@ -41,3 +41,86 @@ Ahora solo guarde los cambio y proceda a iniciar el Apache Server
   ## Comprobar estado de Apache Server
   $ sudo systemctl start httpd
 ```
+
+
+### Instalación de PHP 7.4
+
+A diferencia de otras distribuciones en Manjaro se le da prioridad a las nuevas versiones de cualquier paquete, por consiguiente, actualmente el comando `sudo pacman -S php php-apache` instalar la versión de PHP 8.0.
+Sí se desea instalar una versión de PHP 7.x solo conseguiremos obtener PHP 7.4
+
+
+Instalación de PHP 7.4
+
+```
+  $ sudo pacman -S php7 php7-apache
+  
+  ## Obtener la versión de PHP
+  $ php -v
+  
+  ## O en su defecto si no funciona intentar con
+  $ php7 -v
+```
+
+Instalación de PHP Extensions
+
+```
+  $ sudo pacman -S php7-mongodb php7-cgi php7-apache php7-fpm php7-gd php7-pgsql php7-memcache php7-sqlite
+
+```
+
+Configuración
+
+Se modificara el siguiente archivo `/etc/httpd/conf/httpd.conf` mediante **nano** o **gedit**
+ 
+```
+   ## Para abrir el archivo con nano
+  $ sudo nano /etc/httpd/conf/httpd.conf
+  
+  ## Para abrir el archivo con gedit
+  $ sudo gedit /etc/httpd/conf/httpd.conf
+```
+
+Se agregaran las siguientes lineas al final del archivo
+
+```
+  [...]
+  LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+  
+  ## Para PHP 7.x
+  LoadModule php7_module modules/libphp7.so
+  AddHandler php7-script php
+  Include conf/extra/php7_module.conf
+  
+  ## Opcional
+  <IfModule dir_module>
+      <IfModule php7_module>
+  	      DirectoryIndex index.php index.html
+  	      <FilesMatch "\.php$">
+  		        SetHandler application/x-httpd-php
+  	      </FilesMatch>
+  	      <FilesMatch "\.phps$">
+  		        SetHandler application/x-httpd-php-source
+  	      </FilesMatch>
+      </IfModule>
+  </IfModule>
+
+```
+
+Reinicie el Apache Server
+
+```
+  $ sudo systemctl start httpd
+  
+  ## Comprobar estado de Apache Server
+  $ sudo systemctl start httpd
+```
+
+### Testeo
+
+Crear un archivo mediante en la siguiente ruta nano `/srv/http/index.php` que corresponde a nuestro servidor, posteriomente se agregara el siguiente código.
+
+```
+<?php
+ phpinfo();
+?>
+```
