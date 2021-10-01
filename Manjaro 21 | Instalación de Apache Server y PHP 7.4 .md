@@ -12,7 +12,6 @@ Instalación
 
 ```
   $ sudo pacman -S apache
-
 ```
 
 Configuracion: Se editará el archivo `/etc/httpd/conf/httpd.conf` mediante **nano** o **gedit**
