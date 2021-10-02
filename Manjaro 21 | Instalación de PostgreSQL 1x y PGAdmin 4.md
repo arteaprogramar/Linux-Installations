@@ -1,4 +1,4 @@
-## Instalación de PostgreSQL 1x en Manjaro o ArchLinux
+## Instalación de PostgreSQL 1x y PGAdmin4 en Manjaro o ArchLinux
 
 El objetivo de este artículo es enseñarte a instalar PostgreSQL y PGAdmin en la distribución Manjaro o ArchLinux.
 
