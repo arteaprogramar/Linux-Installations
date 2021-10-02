@@ -148,10 +148,10 @@ Edite y establezca el método de autenticación para cada usuario *scram-sha-256
   local   all             user                                    scram-sha-256
 ```
 
-Agrega al archivo la siguiente linea en donde reemplazara *xxx.xxx.xxx.xxx/32* por su dirección IP.
+Agrega al archivo la siguiente linea en donde reemplazara *xxx.xxx.xxx.xxx/xx* por su dirección IP.
 
 ```
-  host         all         all         xxx.xxx.xxx.xxx/32           md5
+  host         all         all         xxx.xxx.xxx.xxx/xx           md5
 ```
 
 ### Post-Instalación
