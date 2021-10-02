@@ -1,4 +1,4 @@
-## Instalación de PostgreSQL 1x y PGAdmin 4 en Manjaro o ArchLinux
+## Instalación de PostgreSQL 1x en Manjaro o ArchLinux
 
 El objetivo de este artículo es enseñarte a instalar PostgreSQL y PGAdmin en la distribución Manjaro o ArchLinux.
 
@@ -6,6 +6,7 @@ El objetivo de este artículo es enseñarte a instalar PostgreSQL y PGAdmin en l
 
 - Acceso a modo administrativo
 - Tener instalado YAY (AUR Helper)
+- Tener instalado gedit o cualquier otro editor de texto como el paquete nano para la terminal.
 
 
 ### Versiones de PostgreSQL disponibles
@@ -47,7 +48,7 @@ Al realizar la instalación de PostgreSQL el sistema crea un usuario llamado **p
 ```
   $ sudo -iu postgres
 
-## o
+  ## o
 
   $ su -l postgres
 ```
@@ -82,6 +83,14 @@ Inicializar el gestor de base de datos
 
 Muchas líneas deberían aparecer ahora en la pantalla con varias terminando por : ... ok
 
+
+Ejecutar la herramienta de administracion por consola para cambiar contraseña
+
+```
+  [postgres]$ psql
+  [postgres]$ ALTER USER postgres WITH password 'xxxx';
+```
+
 **Importante**
 
 En caso de que al tratar de acceder al usuario **postgres** requira contraseña, deberá cambiarla mediante el siguiente comando.
@@ -90,3 +99,65 @@ En caso de que al tratar de acceder al usuario **postgres** requira contraseña,
 ```
   $ sudo passwd postgres
 ```
+
+**Configurar postgresql.conf**
+
+Para tener acceso remoto a PostgreSQL es necesario editar dos archivos de configuración: `/var/lib/postgres/data/postgresql.conf` y `/var/lib/postgres/data/pg_hba.conf`
+
+Se modificara el siguiente archivo `/var/lib/postgres/data/postgresql.conf` mediante nano o gedit
+
+```
+  $ sudo nano /var/lib/postgres/data/postgresql.conf
+  $ sudo gedit /var/lib/postgres/data/postgresql.conf
+```
+
+Se buscará la linea con la siguiente instrucción  ` #listen_addresses=’listen’ ` y se modificará de la siguiente manera:
+
+```
+listen_addresses = '*'
+```
+
+**Configurar pg_hba.conf**
+
+Obtener la dirección IP donde se encuentra alojado PostgreSQL
+
+```
+  ## Obtener direccion IP
+  $ ip addr | grep inet 
+  
+  ## Output
+  inet 127.0.0.1/8 scope host lo
+  inet6 ::1/128 scope host 
+  inet 192.168.0.39/24 brd 192.168.0.255 scope global dynamic noprefixroute wlp3s0
+  inet6 2806:268:2401:829f:8b5d:6c58:6f4e:2f0d/64 scope global dynamic noprefixroute 
+  inet6 fe80::1ae3:6df:f41f:159e/64 scope link noprefixroute 
+```
+
+Se modificara el siguiente archivo `/var/lib/postgres/data/pg_hba.conf` mediante nano o gedit
+
+```
+  $ sudo nano /var/lib/postgres/data/pg_hba.conf
+  $ sudo gedit /var/lib/postgres/data/pg_hba.conf
+```
+
+Edite y establezca el método de autenticación para cada usuario *scram-sha-256* o *md5*
+
+```
+  # TYPE  DATABASE        USER            ADDRESS                 METHOD                                                                                               
+  # "local" is for Unix domain socket connections only                                                                                                                        
+  local   all             user                                    scram-sha-256
+```
+
+Agrega al archivo la siguiente linea en donde reemplazara *xxx.xxx.xxx.xxx/32* por su dirección IP.
+
+```
+  host         all         all         xxx.xxx.xxx.xxx/32           md5
+```
+
+### Post-Instalación
+
+```
+   $ sudo systemctl restart postgresql.service
+   $ sudo systemctl status postgresql.service
+```
+
