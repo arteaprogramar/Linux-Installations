@@ -2,7 +2,7 @@
 
 El objetivo de este artículo es enseñarte a instalar PostgreSQL y PGAdmin en la distribución Manjaro o ArchLinux.
 
-### Requesitos
+### Requisitos
 
 - Acceso a modo administrativo
 - Tener instalado YAY (AUR Helper)
