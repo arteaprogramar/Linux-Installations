@@ -161,3 +161,10 @@ Agrega al archivo la siguiente linea en donde reemplazara *xxx.xxx.xxx.xxx/xx* p
    $ sudo systemctl status postgresql.service
 ```
 
+
+### Instalación de PGAdmin4
+
+```
+  $ sudo pacman -S pgadmin4
+```
+
