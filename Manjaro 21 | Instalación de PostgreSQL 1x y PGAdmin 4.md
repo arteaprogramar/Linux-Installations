@@ -140,7 +140,7 @@ Se modificara el siguiente archivo `/var/lib/postgres/data/pg_hba.conf` mediante
   $ sudo gedit /var/lib/postgres/data/pg_hba.conf
 ```
 
-Edite y establezca el método de autenticación para cada usuario *scram-sha-256* o *md5*
+Edite y establezca el método de autenticación para cada usuario *scram-sha-256* o *md5* en las conexiones IPv4
 
 ```
   # TYPE  DATABASE        USER            ADDRESS                 METHOD                                                                                               
