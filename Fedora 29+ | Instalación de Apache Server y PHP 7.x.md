@@ -70,13 +70,12 @@ Instalación de "REMI Repository"
 ➡ php73 -v
 ```
 
-#### Instalación de Apache Service 
+#### Comenzar Apache Service 
 ```
-➡ dnf install httpd
 ➡ systemctl start httpd.service
 ```
 
-#### Configurar del Firewall ]
+#### Configurar del Firewall
 ```
 ➡ firewall-cmd --get-active-zones
 ➡ firewall-cmd --permanent --zone=public --add-service=http
