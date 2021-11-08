@@ -43,7 +43,7 @@ $ sudo nano  /etc/yum.repos.d/mysql-community.repo
 # gpgcheck=1
 #gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
-# Agregar el soporte para MySQL 5.7
+# Agregar el soporte para MySQL 5.7 proveniente del soporte de Fedora 31
 
 [mysql57-community]
 name=MySQL 5.7 Community Server
