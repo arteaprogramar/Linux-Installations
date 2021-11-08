@@ -98,7 +98,7 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
 ```
 
 
-### Protección de MYSQL al instalar
+### Confuguración básica de seguridad de MySQL
 
 ```sh
 
