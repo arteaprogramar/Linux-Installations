@@ -57,7 +57,7 @@ Instalación de "REMI Repository"
 
 #### Instalación de las extensiones de PHP 7.3 
 ```
-➡ dnf --enablerepo=remi install php73-php-cli php73-php-fpm php73-php-mysqlnd php73-php-zip php73-php-devel php73-php-gd php73-php-mcrypt php73-php-mbstring php73-php-curl php73-php-xml php73-php-pear php73-php-bcmath php73-php-json
+➡ dnf --enablerepo=remi install php73-php-intl php73-php-cli php73-php-fpm php73-php-mysqlnd php73-php-zip php73-php-devel php73-php-gd php73-php-mcrypt php73-php-mbstring php73-php-curl php73-php-xml php73-php-pear php73-php-bcmath php73-php-json
 ```
 
 #### Instalación de PHP Composer
