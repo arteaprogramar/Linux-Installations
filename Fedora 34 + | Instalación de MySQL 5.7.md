@@ -13,8 +13,11 @@ Requisito
 
 - Descargar e instalar MySQL Repository
 
-```
+```sh
+## Fedora 35
+$ sudo dnf install http://repo.mysql.com/mysql80-community-release-fc35.rpm
 
+## Fedora 34
 $ sudo dnf install http://repo.mysql.com/mysql80-community-release-fc34.rpm
 
 ```
