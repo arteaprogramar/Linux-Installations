@@ -76,7 +76,7 @@ Instalación de "REMI Repository"
 ```
 
 #### Configurar del Firewall
-```
+``` 
 ➡ firewall-cmd --get-active-zones
 ➡ firewall-cmd --permanent --zone=public --add-service=http
 ➡ systemctl restart firewalld.service
