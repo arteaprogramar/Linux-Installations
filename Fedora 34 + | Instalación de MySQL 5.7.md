@@ -41,7 +41,7 @@ $ sudo nano  /etc/yum.repos.d/mysql-community.repo
 # baseurl=http://repo.mysql.com/yum/mysql-8.0-community/fc/$releasever/$basearch/
 # enabled=1
 # gpgcheck=1
-#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+# gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
 # Agregar el soporte para MySQL 5.7 proveniente del soporte de Fedora 31
 
@@ -56,7 +56,7 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
 
 ### Instalación de MySQL
 
-```
+```sh
 $ sudo dnf install mysql-community-server 
 
 ```
@@ -64,7 +64,7 @@ $ sudo dnf install mysql-community-server
 
 ### Comenzar y conocer el servicio de MySQL
 
-```
+```sh
 $ sudo systemctl start mysqld
 
 $ sudo systemctl status mysqld
@@ -78,7 +78,7 @@ Establecer una contraseña al servicio de MySQL
 
 - Obtener una contraseña temporal para acceder a sevicio de MySQL
 
-```
+```sh
 
 $  sudo grep 'temporary password' /var/log/mysqld.log
 
@@ -86,7 +86,7 @@ $  sudo grep 'temporary password' /var/log/mysqld.log
 
 - Ingresar al servicio de MySQL y posteriormente cambiar la contraseña
 
-```
+```sh
 
 $  mysql -uroot -p
 
@@ -100,7 +100,7 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
 
 ### Protección de MYSQL al instalar
 
-```
+```sh
 
 $ /usr/bin/mysql_secure_installation
 
@@ -109,7 +109,7 @@ $ /usr/bin/mysql_secure_installation
 
 ### Configuración del Firewall para conexiones remotas
 
-```
+```sh
 
 $ sudo firewall-cmd --permanent --zone=public --add-service=mysql
 $ sudo firewall-cmd --permanent --zone=public --add-port=3306/tcp
