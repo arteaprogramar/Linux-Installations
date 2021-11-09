@@ -1,14 +1,20 @@
-## Instalaciones de Software en GNULinux
+Catálago de Software para instalar en GNULinux
 
-El objetivo de este repositorio es poner a su disposición una lista de Software para instalar en tu GNULinux
+El objetivo de esta Wiki es poner a su disposición una lista de Software para instalar en su GNULinux. Fácil y sencillo como copiar y pegar código.
 
 ## Índice
 
 #### Fedora Linux
-- [Fedora 29+ | Instalación de Apache Server y PHP 7.x](https://github.com/arteaprogramar/Linux-Instalaciones/blob/main/Fedora%2029%2B%20%7C%20Instalaci%C3%B3n%20de%20Apache%20Server%20y%20PHP%207.x.md)
-- [Fedora 33+ | Instalación de Postgresql 12 y PGAdmin4](https://github.com/arteaprogramar/Linux-Instalaciones/blob/main/Fedora%2033%2B%20%7C%20Instalaci%C3%B3n%20de%20Postgresql%2012%20y%20PGAdmin4.md)
-- [Fedora 34 | Instalación de MySQL 5.7](https://github.com/arteaprogramar/Linux-Instalaciones/blob/main/Fedora%2034%20%7C%20Instalaci%C3%B3n%20de%20MySQL%205.7.md)
+- [Fedora 29 - 35 | Instalación de Apache Server y PHP 7.x](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Fedora-%7C-Apache-Server-y-PHP-7.x)
+- [Fedora 33 - 35 | Instalación de Postgresql 12 y PGAdmin4](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Fedora-%7C-Postgresql-12-y-PGAdmin4)
+- [Fedora 34 - 35 | Instalación de MySQL Server 5.7](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Fedora-%7C-MySQL-Server-5.7)
 
 #### RedHat Family Linux
-- [RedHat Family 8+ | Instalación de VirtualBox](https://github.com/arteaprogramar/Linux-Instalaciones/blob/main/RedHat%20Family%208%2B%20%7C%20Instalaci%C3%B3n%20de%20VirtualBox.md)
+- [RedHat Family 8+ | Instalación de VirtualBox](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/RHEL-Family-%7C-VirtualBox-6.1)
+
+
+#### Manjaro | ArchLinux Family
+- [Manjaro 21+ | Instalación de Apache Server y PHP 7.x](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Manjaro-%7C-Apache-Server-y-PHP-7.x)
+- [Manjaro 21+ | Instalación de Postgresql 12 y PGAdmin4](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Manjaro-%7C-Postgresql-12-y-PGAdmin4)
+- [Manjaro 21+ | Instalación de MySQL Server 5.7](https://github.com/arteaprogramar/Linux-Instalaciones/wiki/Manjaro-%7C-MySQL-Server-5.7)
 
