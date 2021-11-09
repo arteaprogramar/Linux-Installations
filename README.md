@@ -1,4 +1,4 @@
-Catálago de Software para instalar en GNULinux
+# Catálago de Software para instalar en GNULinux
 
 El objetivo de esta Wiki es poner a su disposición una lista de Software para instalar en su GNULinux. Fácil y sencillo como copiar y pegar código.
 
