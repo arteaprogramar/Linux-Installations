@@ -1,4 +1,4 @@
-## Catálago de Software para instalar en GNULinux
+Catálago de Software para instalar en GNULinux
 
 El objetivo de esta Wiki es poner a su disposición una lista de Software para instalar en su GNULinux. Fácil y sencillo como copiar y pegar código.
 
@@ -14,6 +14,8 @@ El objetivo de esta Wiki es poner a su disposición una lista de Software para i
 - [CentOS Stream 9 | Instalación de Apache Server y PHP 7.4](https://github.com/arteaprogramar/Linux-Installations/wiki/Centos-Stream-9-%7C-Apache-Server-y-PHP-7.4) 
 - [RedHat Family 8+ | Instalación de VirtualBox](https://github.com/arteaprogramar/Linux-Installations/wiki/RHEL-Family-%7C-VirtualBox-6.1)
 
+### Ubuntu
+- [Ubuntu 21+ | Instalación de Apache Server y PHP 7.4](https://github.com/arteaprogramar/Linux-Installations/wiki/Ubuntu-%7C-Apache-Server-y-PHP-7.4)
 
 #### Manjaro | ArchLinux Family
 - [Manjaro 21+ | Instalación de Apache Server y PHP 7.x](https://github.com/arteaprogramar/Linux-Installations/wiki/Manjaro-%7C-Apache-Server-y-PHP-7.x)
