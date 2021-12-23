@@ -50,25 +50,22 @@ while [[ ! $phpVersionInstall =~ ^[0-9]{1,2} ]]; do
     read -p "¿Que versión de PHP deseas instalar? : " phpVersionInstall
     
     if [ $phpVersionInstall -ge $counter ]; then
-    	phpVersionInstall=""
+        phpVersionInstall=""
     else
-    	php="${phpAvailables[$phpVersionInstall]}"
-    	echo -e "\nLog: Instalación de $php"
-    	sudo dnf --enablerepo=remi install "$php" httpd "$php"-php-common
-    	sudo dnf --enablerepo=remi install "$php"-php-intl "$php"-php-cli "$php"-php-fpm "$php"-php-mysqlnd "$php"-php-zip "$php"-php-devel "$php"-php-gd "$php"-php-mcrypt "$php"-php-mbstring "$php"-php-curl "$php"-php-xml "$php"-php-pear "$php"-php-bcmath "$php"-php-json
-    	echo $("$php" -v)
-    	echo -e "\nLog: Comenzar el proceso de Apache Server"
-    	sudo systemctl start httpd.service
-    	echo -e "\nLog: Configuración de Firewall"
-    	sudo firewall-cmd --get-active-zones
-	sudo firewall-cmd --permanent --zone=public --add-service=http
-	sudo systemctl restart firewalld.service
-	sudo systemctl reload firewalld
+        php="${phpAvailables[$phpVersionInstall]}"
+        echo -e "\nLog: Instalación de $php"
+        sudo dnf --enablerepo=remi install "$php" httpd "$php"-php-common
+        sudo dnf --enablerepo=remi install "$php"-php-intl "$php"-php-cli "$php"-php-fpm "$php"-php-mysqlnd "$php"-php-zip "$php"-php-devel "$php"-php-gd "$php"-php-mcrypt "$php"-php-mbstring "$php"-php-curl "$php"-php-xml "$php"-php-pear "$php"-php-bcmath "$php"-php-json
+        echo $("$php" -v)
+        echo -e "\nLog: Comenzar el proceso de Apache Server"
+        sudo systemctl start httpd.service
+        echo -e "\nLog: Configuración de Firewall"
+        sudo firewall-cmd --get-active-zones
+    sudo firewall-cmd --permanent --zone=public --add-service=http
+    sudo systemctl restart firewalld.service
+    sudo systemctl reload firewalld
     fi
 done
 
 echo -e "\nEl proceso ha terminado"
 echo "Abrir localhost: http://127.0.0.1"
-
-
-
