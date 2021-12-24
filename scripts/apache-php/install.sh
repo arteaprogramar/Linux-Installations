@@ -15,7 +15,7 @@ echo $(clear)
 logger "Arte a Programar"
 logger "Script para instalar Apache Server & PHP 7+"
 logger "Disponible solo para Fedora"
-logger "v0.2\n"
+logger "v0.3\n"
 logger "OS : " $osName $fedoraId
 
 # Comprobación de OS
@@ -85,11 +85,11 @@ if [[ $osName = "Fedora Linux" ]]; then
             echo $("$php" -v)
 
             # Configuración de Apache
-            logger "\n\nLog: Configuración de Apache Server"
+            logger "\n\nConfiguración de Apache Server"
             sudo systemctl start httpd.service
 
             # Configuración de Firewall
-            logger "\n\nLog: Configuración de Firewall"
+            logger "\n\Configuración de Firewall"
             sudo firewall-cmd --get-active-zones
             sudo firewall-cmd --permanent --zone=public --add-service=http
             sudo systemctl restart firewalld.service
