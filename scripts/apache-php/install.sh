@@ -1,6 +1,6 @@
 #!/bin/bash
 
-logger() {
+logger(){
     echo -e $1 $2 $3
 }
 

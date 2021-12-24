@@ -5,6 +5,7 @@ logger(){
 }
 
 osName=$(((egrep '^(NAME)=' /etc/os-release) | awk -F = {'print $2'}) | tr -d \")
+fedoraRelease=$(cat /etc/os-release | grep "VERSION_ID=")
 fedoraId=$(rpm -E %fedora)
 
 # Limpiar consola
@@ -42,7 +43,7 @@ if [[ $osName = "Fedora Linux" ]]; then
 
     # Instalación de VLC
     logger "\n\nInstalación de VLC"
-    sudo dnf -y vlc
+    sudo dnf -y install vlc
 
     # Finalizar
     logger "\n\nSe instalado Codecs de Música, Video y Repositorio RPMFusion"        
