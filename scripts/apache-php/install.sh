@@ -43,12 +43,18 @@ if [[ $osName = "Fedora Linux" ]]; then
     sudo dnf config-manager --set-enabled remi
 
     # Buscar versiones de PHP disponibles en REMI
+    logger "\n\nEl siguiente proceso es un poco tardado"
+    logger "Por favor espere un momento"
+    logger "\n\nCuando obtenga algo parecido a esto:"
+    logger "Importing GPG key 0x478F8947:"
+    logger "Ingrese la letra *y* posteriormente de *enter* (Repetir 2veces)"
+    logger "Esto debido a que se debe aceptar las GPG llaves de REMI"
     logger "\n\nBuscar versiones de PHP disponibles en REMI"
     phpAvailables=($((dnf search php*-php | grep "PHP scripting language") | awk -F - {'print $1'}))
 
     # Mostrar al usuario versiones de PHP Disponibles
-    echo "\n\nMenú de versiones de PHP Disponibles para instalar"
-    echo "Ingrese un número según la versión de PHP que desea instalar:"
+    logger "\n\nMenú de versiones de PHP Disponibles para instalar"
+    logger "Ingrese un número según la versión de PHP que desea instalar:"
     counter=0
     for str in "${phpAvailables[@]}"
     do :
@@ -68,11 +74,11 @@ if [[ $osName = "Fedora Linux" ]]; then
 
             # Instalación de Apache Server y PHP
             logger "\n\nDescarga e instalación de $php"
-            sudo dnf --enablerepo=remi install "$php" httpd "$php"-php-common
+            sudo dnf --enablerepo=remi -y install "$php" httpd "$php"-php-common
 
             # Instalación de PHP Extensions
             logger "\n\nInstalación de PHP Extensions"
-            sudo dnf --enablerepo=remi install "$php"-php-intl "$php"-php-cli "$php"-php-fpm "$php"-php-mysqlnd "$php"-php-zip "$php"-php-devel "$php"-php-gd "$php"-php-mcrypt "$php"-php-mbstring "$php"-php-curl "$php"-php-xml "$php"-php-pear "$php"-php-bcmath "$php"-php-json
+            sudo dnf --enablerepo=remi -y install "$php"-php-intl "$php"-php-cli "$php"-php-fpm "$php"-php-mysqlnd "$php"-php-zip "$php"-php-devel "$php"-php-gd "$php"-php-mcrypt "$php"-php-mbstring "$php"-php-curl "$php"-php-xml "$php"-php-pear "$php"-php-bcmath "$php"-php-json
             
             # Obtener información de PHP instalada
             logger "\n\nObtener información de PHP instalada"
@@ -89,9 +95,18 @@ if [[ $osName = "Fedora Linux" ]]; then
             sudo systemctl restart firewalld.service
             sudo systemctl reload firewalld
 
+            # Cambiar permisos de /var/www/html
+            logger "\n\nAgregar todos los permisos (rwx) a /var/www/html"
+            sudo chmod 777 /var/www/html
+
+            # Crear archivo index.php en localhost
+            logger "Crear archivo index.php en localhost"
+            echo "<?php phpinfo(); ?>" > /var/www/html/index.php
+
             # Finalizar
             logger "\n\nSe instalado Apache Server y PHP correctamente"
             logger "\nAbrir localhost: http://127.0.0.1"
+            xdg-open http://127.0.0.1
         fi
     done
 
