@@ -4,7 +4,7 @@ logger(){
 	echo -e $1 $2
 }
 
-fedoraRelease=$(cat /etc/*-release | grep "VERSION_ID=")
+fedoraRelease=$(cat /etc/os-release | grep "VERSION_ID=")
 fedoraId=$(echo $fedoraRelease | awk -F = {'print $2'})
 
 
