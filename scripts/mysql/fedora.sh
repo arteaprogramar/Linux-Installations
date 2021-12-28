@@ -7,7 +7,6 @@ logger(){
 fedoraRelease=$(cat /etc/os-release | grep "VERSION_ID=")
 fedoraId=$(echo $fedoraRelease | awk -F = {'print $2'})
 
-
 # Limpiar consola
 echo $(clear)
 
