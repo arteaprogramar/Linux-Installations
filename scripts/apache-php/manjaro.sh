@@ -11,8 +11,7 @@ echo $(clear)
 
 # Mostrar informacion del Script
 logger "Arte a Programar"
-logger "Script para instalar MySQL Server 5.7"
-logger "Se require tener instalado el Auxiliar YAY"
+logger "Script para instalar Apache Server & PHP 7.4"
 logger "v0.1\n"
 logger "OS : " $osName
 
