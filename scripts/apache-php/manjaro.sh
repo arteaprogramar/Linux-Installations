@@ -68,7 +68,7 @@ Include conf/extra/php7_module.conf
 </IfModule>
 "
 
-sudo echo $phpConfig >> /etc/httpd/conf/httpd.conf
+sudo echo -e $phpConfig >> /etc/httpd/conf/httpd.conf
 
 # Reiniciar el servico de apache
 logger "\n\nReiniciar el servicio de apache"
