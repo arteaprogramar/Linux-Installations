@@ -47,25 +47,25 @@ sudo sed -i 's,LoadModule mpm_event_module modules\/mod_mpm_event.so,# LoadModul
 
 # Variable para configuración de PHP
 phpConfig="
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so                \n\n
 
-## Para PHP 7.x
-LoadModule php7_module modules/libphp7.so
-AddHandler php7-script php
-Include conf/extra/php7_module.conf
-
-## Opcional
-<IfModule dir_module>
-    <IfModule php7_module>
-        DirectoryIndex index.php index.html
-        <FilesMatch \"\.php$\">
-            SetHandler application/x-httpd-php
-        </FilesMatch>
-        <FilesMatch \"\.phps$\">
-            SetHandler application/x-httpd-php-source
-        </FilesMatch>
-    </IfModule>
-</IfModule>
+## Para PHP 7.x                                                         \n
+LoadModule php7_module modules/libphp7.so                               \n
+AddHandler php7-script php                                              \n
+Include conf/extra/php7_module.conf                                     \n\n
+ 
+## Opcional                                                             \n
+<IfModule dir_module>                                                   \n
+    <IfModule php7_module>                                              \n
+        DirectoryIndex index.php index.html                             \n
+        <FilesMatch \"\.php$\">                                         \n
+            SetHandler application/x-httpd-php                          \n
+        </FilesMatch>                                                   \n
+        <FilesMatch \"\.phps$\">                                        \n
+            SetHandler application/x-httpd-php-source                   \n
+        </FilesMatch>                                                   \n
+    </IfModule>                                                         \n
+</IfModule>                                                             \n
 "
 
 sudo echo -e $phpConfig >> /etc/httpd/conf/httpd.conf
