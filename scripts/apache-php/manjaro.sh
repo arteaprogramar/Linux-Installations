@@ -42,7 +42,8 @@ sudo pacman -S php7-apache php7-cgi php7-dblib php7-embed php7-enchant php7-fpm 
 
 # Configuración del Módulo de PHP al servirdor de Apache
 logger "\n\nConfiguración del Módulo de PHP al servirdor de Apache"
-sudo sed -i 's,LoadModule mpm_event_module modules\/mod_mpm_event.so,# LoadModule mpm_event_module modules\/mod_mpm_event.so,' /etc/httpd/conf/httpd.conf
+sudo chmod 666 /etc/httpd/conf/httpd.conf
+sudo sed -i 's,LoadModule mpm_event_module modules\/mod_mpm_event.so,# LoadModule mpm_event_module modules/mod_mpm_event.so,' /etc/httpd/conf/httpd.conf
 
 # Variable para configuración de PHP
 phpConfig="
@@ -67,14 +68,14 @@ Include conf/extra/php7_module.conf
 </IfModule>
 "
 
-sudo echo -e "$phpConfig" >> /etc/httpd/conf/httpd.conf
+sudo echo $phpConfig >> /etc/httpd/conf/httpd.conf
 
 # Reiniciar el servico de apache
-logger "\n\nComenzar el servicio de apache"
+logger "\n\nReiniciar el servicio de apache"
 sudo systemctl restart httpd
 
 # Configuración de Firewall
-logger "\n\Configuración de Firewall"
+logger "\n\nConfiguración de Firewall"
 # sudo firewall-cmd --get-active-zones
 # sudo firewall-cmd --permanent --zone=public --add-service=http
 # sudo systemctl restart firewalld.service
