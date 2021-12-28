@@ -56,15 +56,15 @@ Include conf/extra/php7_module.conf                                     \n\n
  
 ## Opcional                                                             \n
 <IfModule dir_module>                                                   \n
-    <IfModule php7_module>                                              \n
-        DirectoryIndex index.php index.html                             \n
-        <FilesMatch \"\.php$\">                                         \n
-            SetHandler application/x-httpd-php                          \n
-        </FilesMatch>                                                   \n
-        <FilesMatch \"\.phps$\">                                        \n
-            SetHandler application/x-httpd-php-source                   \n
-        </FilesMatch>                                                   \n
-    </IfModule>                                                         \n
+\t    <IfModule php7_module>                                              \n
+\t        DirectoryIndex index.php index.html                             \n
+\t        <FilesMatch \"\.php$\">                                         \n
+\t\t            SetHandler application/x-httpd-php                          \n
+\t        </FilesMatch>                                                   \n
+\t        <FilesMatch \"\.phps$\">                                        \n
+\t\t            SetHandler application/x-httpd-php-source                   \n
+\t        </FilesMatch>                                                   \n
+\t    </IfModule>                                                         \n
 </IfModule>                                                             \n
 "
 
