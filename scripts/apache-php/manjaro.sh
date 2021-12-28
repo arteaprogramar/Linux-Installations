@@ -16,19 +16,9 @@ logger "Se require tener instalado el Auxiliar YAY"
 logger "v0.1\n"
 logger "OS : " $osName
 
-
 # Actualización del sistema
 logger "\n\nActualizando sistema"
 sudo pacman -Syu
-
-# Comprobar si YAY esta instalado
-{ 
-    yay --version 
-} || { 
-    logger "\n\nSe require YAY Helper"
-    exit
-}
-
 
 # Instalación de Apache Sever
 logger "\n\nInstalación de Apache Sever"
