@@ -100,6 +100,6 @@ logger "Crear archivo index.php en localhost"
 echo "<?php phpinfo(); ?>" > /srv/http/index.php 
 
 # Finalizar
-logger "\n\nSe instalado Apache Server y PHP correctamente"
+logger "\n\nSe ha instalado Apache Server y PHP correctamente"
 logger "\nAbrir localhost: http://127.0.0.1"
 xdg-open http://127.0.0.1
