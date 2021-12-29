@@ -47,24 +47,24 @@ sudo sed -i 's,LoadModule mpm_event_module modules\/mod_mpm_event.so,# LoadModul
 
 # Variable para configuración de PHP
 phpConfig="
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so                \n\n
-
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so                \n
+                                                                        \n
 ## Para PHP 7.x                                                         \n
 LoadModule php7_module modules/libphp7.so                               \n
 AddHandler php7-script php                                              \n
-Include conf/extra/php7_module.conf                                     \n\n
- 
+Include conf/extra/php7_module.conf                                     \n
+                                                                        \n
 ## Opcional                                                             \n
 <IfModule dir_module>                                                   \n
-\t    <IfModule php7_module>                                              \n
-\t        DirectoryIndex index.php index.html                             \n
-\t        <FilesMatch \"\.php$\">                                         \n
-\t\t            SetHandler application/x-httpd-php                          \n
-\t        </FilesMatch>                                                   \n
-\t        <FilesMatch \"\.phps$\">                                        \n
-\t\t            SetHandler application/x-httpd-php-source                   \n
-\t        </FilesMatch>                                                   \n
-\t    </IfModule>                                                         \n
+\t    <IfModule php7_module>                                            \n
+\t        DirectoryIndex index.php index.html                           \n
+\t        <FilesMatch \"\.php$\">                                       \n
+\t\t            SetHandler application/x-httpd-php                      \n
+\t        </FilesMatch>                                                 \n
+\t        <FilesMatch \"\.phps$\">                                      \n
+\t\t            SetHandler application/x-httpd-php-source               \n
+\t        </FilesMatch>                                                 \n
+\t    </IfModule>                                                       \n
 </IfModule>                                                             \n
 "
 
