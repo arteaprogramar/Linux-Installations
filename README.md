@@ -16,6 +16,7 @@ El objetivo de esta Wiki es poner a su disposición una lista de Software para i
 
 ### Ubuntu
 - [Ubuntu 21+ | Instalación de Apache Server y PHP 7.4](https://github.com/arteaprogramar/Linux-Installations/wiki/Ubuntu-%7C-Apache-Server-y-PHP-7.4)
+- [Ubuntu 21+ | Instalación de MySQL Server 5.7](https://github.com/arteaprogramar/Linux-Installations/wiki/Ubuntu-%7C-MySQL-Server-5.7)
 
 #### Manjaro | ArchLinux Family
 - [Manjaro 21+ | Instalación de Apache Server y PHP 7.x](https://github.com/arteaprogramar/Linux-Installations/wiki/Manjaro-%7C-Apache-Server-y-PHP-7.x)
