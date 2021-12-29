@@ -25,9 +25,7 @@ tmpDir="tpm"
 mkdir $tmpDir
 cd $tmpDir
 mysqlVersion="mysql-5.7.36-linux-glibc2.12-x86_64"
-mysqlPathLinux="
-export MYSQL_HOME=/usr/local/mysql                             \n
-export PATH=${MYSQL_HOME}/bin:${PATH}"
+mysqlPathLinux="export MYSQL_HOME=/usr/local/mysql \n export PATH=${MYSQL_HOME}/bin:${PATH}"
 
 # Comprobar si makepkg esta instado
 logger "\n\nComprobar si makepkg esta instado"
@@ -121,8 +119,10 @@ sudo echo $mysqlPathLinux > /etc/profile.d/mysql.sh
 sudo chmod +x /etc/profile.d/mysql.sh
 
 # Nota
-logger "\n\nEjecute el siguiente comando en usuario root para agregar MySQL al path"
+logger "\n\nEjecute los siguientes comandos en usuario root para agregar MySQL al path"
 logger "$ su"
+logger "$ export mysqlPathLinux=\"export MYSQL_HOME=/usr/local/mysql \nexport PATH=\${MYSQL_HOME}/bin:\${PATH}\""
+logger "$ echo \$mysqlPathLinux > /etc/profile.d/mysql.sh"
 logger "$ source /etc/profile.d/mysql.sh"
 
 # Comprobar estado de MySQL Server
@@ -132,7 +132,7 @@ logger "$ mysql.server status"
 sudo support-files/mysql.server status
 
 # Instalar MySQL Workbench
-sudo pacman -Sy workbench
+sudo pacman -Sy mysql-workbench
 
 # Nota
 logger "\n\nEjecute el siguiente comando en usuario root para agregar MySQL al path"
