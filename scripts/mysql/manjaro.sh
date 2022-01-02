@@ -115,7 +115,7 @@ sudo bin/mysql_secure_installation
 
 # Agregar MySQL Server al PATH de Linux
 sudo cp support-files/mysql.server bin/mysql.server
-sudo echo $mysqlPathLinux > /etc/profile.d/mysql.sh
+sudo echo -e $mysqlPathLinux > /etc/profile.d/mysql.sh
 sudo chmod +x /etc/profile.d/mysql.sh
 
 # Nota

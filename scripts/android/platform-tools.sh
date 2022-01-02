@@ -20,7 +20,7 @@ logger "\n\nCrear carptera Temporal"
 tmpDir="tpm"
 mkdir $tmpDir
 cd $tmpDir
-platformToolsPathLinux="export ADB_HOME=/opt/android \n export PATH=${ADB_HOME}/platform-tools:${PATH}"
+platformToolsPathLinux="export ADB_HOME=/opt/android \n export PATH=\${ADB_HOME}/platform-tools:\${PATH}"
 
 # Comprobar si script se esta ejecutando como usuario root
 logger "\n\nComprobar si script se esta ejecutando como usuario root"
@@ -40,7 +40,7 @@ if [[ $username = "root" ]]; then
     mv platform-tools /opt/android/platform-tools
 
     # Agregar Platforms-Tools a PATH Linux
-    echo $platformToolsPathLinux > /etc/profile.d/adb.sh
+    echo -e $platformToolsPathLinux > /etc/profile.d/adb.sh
     chmod +x /etc/profile.d/adb.sh
     source /etc/profile.d/adb.sh
 
