@@ -36,10 +36,12 @@ if [[ $username = "root" ]]; then
     unzip platform-tools-latest-linux.zip
 
     # Mover a ruta /opt/
+    logger "\n\nMover *platform-tool* a ruta /opt/"
     mkdir /opt/android
     mv platform-tools /opt/android/platform-tools
 
-    # Agregar Platforms-Tools a PATH Linux
+    # Agregar Platform-Tools a PATH Linux
+    logger "\n\nAgregar Platform-Tools a PATH Linux"
     echo -e $platformToolsPathLinux > /etc/profile.d/adb.sh
     chmod +x /etc/profile.d/adb.sh
     source /etc/profile.d/adb.sh
