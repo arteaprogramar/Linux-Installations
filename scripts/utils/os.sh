@@ -21,5 +21,9 @@ getVersionOs(){
 } 
 
 getUser(){
-    echo -e $(whoami)
+    if [[ $EUID != 0 ]]; then
+        echo -e $username
+    else
+        echo -e "root"
+    fi
 }
