@@ -39,7 +39,8 @@ while [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; do
     else
         # Instalación de Java OpenJRE/JDK
         loggerBold "\n\nInstalación de Java open-(jre/jdk)"
-        sudo pacman -Sy jre"$versionToInstall"-openjdk-headless jre"$versionToInstall"-openjdk jdk"$versionToInstall"-openjdk openjdk"$versionToInstall"-doc openjdk"$versionToInstall"-src
+        java=$(echo "${versions[$versionToInstall]}")
+        sudo pacman -Sy jre"$java"-openjdk-headless jre"$java"-openjdk jdk"$java"-openjdk openjdk"$java"-doc openjdk"$java"-src
 
         # Comprobar versión de Java
         loggerBold "\n\nComprobar versión de Java"
