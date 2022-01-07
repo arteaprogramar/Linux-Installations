@@ -6,7 +6,7 @@ source $(dirname "$0")/../utils/text.sh
 
 # Script info
 info "Instalación de Java (OpenJRE-OpenJDK)" "1.0"
-loggerBold "*Este script ha sido probado en EndeavourOS*"
+loggerBold "*Este script ha sido probado en EndeavourOS/Manjaro*"
 
 # Realizar actualización del sistema
 loggerBold "\nRealizar actualización del sistema"
@@ -34,7 +34,7 @@ while [[ $versionToInstall =~ ^[0-9]{1,2} ]]; do
     
     if [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; then
         versionToInstall=""
-    else if [ $versionToInstall -ge $counter ]; then
+    elif [ $versionToInstall -ge $counter ]; then
         versionToInstall=""
     else
         # Instalación de Java OpenJRE/JDK
