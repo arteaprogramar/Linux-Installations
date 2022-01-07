@@ -29,7 +29,7 @@ done
 
 # Instalación de Java
 versionToInstall=""
-while [[ $versionToInstall =~ ^[0-9]{1,2} ]]; do
+while [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; do
     read -p "¿Que versión de Java open-(jre/jdk) deseas instalar? : " versionToInstall
     
     if [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; then
