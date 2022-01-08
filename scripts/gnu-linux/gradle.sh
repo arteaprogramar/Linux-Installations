@@ -57,7 +57,7 @@ declare -a versions=($json)
 
 # Mostrar menu de versiones disponibles de Gradle
 loggerBold "\nMenú de versiones disponibles de Gradle"
-logger "Ingrese un número según la versión de PHP que desea instalar:"
+logger "Ingrese un número según la versión de Gradle que desea instalar:"
 counter=0
 
 for i in "${versions[@]}"; do
