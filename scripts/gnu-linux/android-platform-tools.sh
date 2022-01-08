@@ -48,7 +48,14 @@ mv platform-tools /opt/android/platform-tools
 loggerBold "\n\nAgregar Platform-Tools a PATH Linux"
 echo -e $configPath > /etc/profile.d/adb.sh
 chmod +x /etc/profile.d/adb.sh
-source /etc/profile.d/adb.sh
+{
+    source /etc/profile.d/adb.sh
+} || {
+    logger "Error al ejecutar el comando *source*"
+    logger "Nota: "
+    logger "Terminado el script ejecute manualmente el siguiente comando en modo *root*"
+    logger "$ source /etc/profile.d/adb.sh"
+}
 
 # Obtener información de Platform-Tool
 loggerBold "\n\nObtener información de Platform-Tool"
@@ -59,6 +66,8 @@ loggerBold "\n\nObtener información de Platform-Tool"
     logger "./adb --version"
     ./adb --version
 }
+
+logger "\nEn algunas distribuciones requiere reiniciar el sistema"
 
 # Remove temp
 deleteTemp

@@ -95,14 +95,23 @@ while [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; do
         configPath="export GRADLE_HOME=/opt/Gradle/gradle-$gradle \nexport PATH=\${GRADLE_HOME}/bin:\${PATH}"
         echo -e $configPath > /etc/profile.d/gradle.sh
         chmod +x /etc/profile.d/gradle.sh
-        source /etc/profile.d/gradle.sh
+        
+        {
+            source /etc/profile.d/gradle.sh
+        } || {
+            logger "Error al ejecutar el comando *source*"
+            logger "Nota: "
+            logger "Terminado el script ejecute manualmente el siguiente comando en modo *root*"
+            logger "$ source /etc/profile.d/gradle.sh"
+        }
 
         # Obtener version de Gradle
         loggerBold "\n\nObtener version de Gradle"
         gradle --version
+        logger "\nEn algunas distribuciones requiere reiniciar el sistema"
+
     fi
 done
-
 
 # Remove temp
 deleteTemp
