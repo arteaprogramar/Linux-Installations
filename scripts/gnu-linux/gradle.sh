@@ -5,6 +5,8 @@ source $(dirname "$0")/../utils/file.sh
 source $(dirname "$0")/../utils/os.sh
 
 info "Instalación de Gradle" "1.0"
+loggerBold "*Este script ha sido probado en EndeavourOS/Manjaro*"
+
 
 # Comprobar si Java esta instalado
 loggerBold "Comprobar si Java esta instalado"
@@ -28,6 +30,14 @@ createTemp
 movetoTemp
 
 # Descargar archivo json
+{
+    wget --version
+} || {
+    # Require instalar wget
+    loggerBold "\n\n*Gradle.sh* requiere del paquete wget"
+    logger "Por favor instale *wget* en su GNULinux"
+    exit
+}
 loggerBold "\n\nDescargar lista de Gradle disponibles"
 wget https://raw.githubusercontent.com/gradle/gradle/master/released-versions.json -O g.json
 

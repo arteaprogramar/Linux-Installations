@@ -5,6 +5,7 @@ source $(dirname "$0")/../utils/file.sh
 source $(dirname "$0")/../utils/os.sh
 
 info "Instalación de Android Platform Tools" "1.0"
+loggerBold "*Este script ha sido probado en EndeavourOS/Manjaro*"
 
 # Comprobar si script se esta ejecutando como usuario root
 if [[ $(getUser) != "root" ]]; then
@@ -22,6 +23,16 @@ configPath="export ADB_HOME=/opt/android \nexport PATH=\${ADB_HOME}/platform-too
 
 # Descargar última version de Platform-Tools
 loggerBold "\n\nDescargar última version de Platform-Tools para GNULinux"  
+
+{
+    wget --version
+} || {
+    # Require instalar wget
+    loggerBold "\n\n*Gradle.sh* requiere del paquete wget"
+    logger "Por favor instale *wget* en su GNULinux"
+    exit
+}
+
 wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 
 # Descomprimir archivo
