@@ -14,7 +14,7 @@ Este repositorio pone a su disposición una carpeta de Script (Bash Shell), los 
 
 - **Nota 3)**: Usted puede realizar contribuciones al repositorio para agregar compatibilidad a otras GNULinux o agregar otros scripts para instalar paquetes con proceso de instalación largo.
 
-- **Nota 4)**: Para ejecutar un script `sh script/gestor/filname.sh`
+- **Nota 4)**: Para ejecutar un script `sh script/gestor/release/filname.sh`
 
 ### Fedora Linux
 
