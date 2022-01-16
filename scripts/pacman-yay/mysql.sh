@@ -6,6 +6,9 @@ source $(dirname "$0")/../utils/os.sh
 
 info "Instalación de MySQL Server 5.7" "1.0"
 
+# Documentacion
+documentation "MySQL Dev" "https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html"
+
 # Variables
 osName=$(getNameOs)
 osNumber=$(getVersionOs)
@@ -29,7 +32,7 @@ loggerBold "\n\nComprobar si makepkg esta instado"
     # Instalación de Base-Devel
     loggerBold "\n\nConfirma la instalación de base-devel con un *enter*"
     loggerBold "Para instalar todos los paquetes"
-    sudo pacman -Sy base-devel
+    sudo pacman -Sy base-devel --noconfirm
 }
 
 # Instalación o comprobación de YAY
@@ -52,13 +55,13 @@ loggerBold "\n\nInstalación o comprobación de YAY"
 
 # Instalación de paquetes adicionales
 loggerBold "\n\nInstalación de paquetes adicionales (libaio)"
-sudo pacman -Sy libaio
+sudo pacman -Sy libaio --noconfirm
 
 loggerBold "\n\nInstalación de paquetes adicionales (numactl)"
-sudo pacman -Sy numactl
+sudo pacman -Sy numactl --noconfirm
 
 loggerBold "\n\nInstalación de paquetes adicionales (ncurses5-compat-libs)"
-yay -Sy ncurses5-compat-libs
+yay -Sy ncurses5-compat-libs --noconfirm
 
 # Crear un usuario y un grupo mysql
 loggerBold "\n\nCrear un usuario y un grupo MySQL"

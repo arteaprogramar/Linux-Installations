@@ -6,7 +6,10 @@ source $(dirname "$0")/../utils/text.sh
 
 # Script info
 info "Instalación de Java (OpenJRE-OpenJDK)" "1.0"
-loggerBold "*Este script ha sido probado en EndeavourOS/Manjaro*"
+loggerBold "*Este script ha sido probado en ArchLinux/EndeavourOS/Manjaro*"
+
+# Documentacion
+documentation "Wiki Arch" "https://wiki.archlinux.org/title/java"
 
 # Realizar actualización del sistema
 loggerBold "\nRealizar actualización del sistema"

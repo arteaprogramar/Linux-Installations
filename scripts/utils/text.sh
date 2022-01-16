@@ -9,13 +9,19 @@ info(){
 }
 
 logger(){
-    echo -e $1 $2 $3
+    echo -e $1 $2 $3 $4 $5
 }
 
 loggerBold(){
     echo -e "\033[1m${1}\033[0m"
 }
 
+documentation(){
+    loggerBold "\nEnlace de referencia:"
+    logger "\033[1m${1}\033[0m" ":" $2
+}
+
 userRootRequired(){
-    loggerBold "Se requiere del usuario root para ejecutar el script"
+    loggerBold "Se requiere del usuario root para ejecutar el script, por favor ejecuta:"
+    logger "$ su"
 }
