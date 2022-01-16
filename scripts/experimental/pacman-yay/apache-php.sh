@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source $(dirname "$0")/../utils/os.sh
-source $(dirname "$0")/../utils/file.sh
-source $(dirname "$0")/../utils/text.sh
+source $(dirname "$0")/../../utils/os.sh
+source $(dirname "$0")/../../utils/file.sh
+source $(dirname "$0")/../../utils/text.sh
 
 info "Menú de Instalación de Apache Server y PHP (Repositorios Oficiales o AUR)" "1.1"
 loggerBold "*Este script ha sido probado en ArchLinux/EndeavourOS/Manjaro*"

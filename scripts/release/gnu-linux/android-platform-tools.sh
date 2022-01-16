@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source $(dirname "$0")/../utils/text.sh
-source $(dirname "$0")/../utils/file.sh
-source $(dirname "$0")/../utils/os.sh
+source $(dirname "$0")/../../utils/os.sh
+source $(dirname "$0")/../../utils/file.sh
+source $(dirname "$0")/../../utils/text.sh
 
 info "Instalación de Android Platform Tools" "1.0"
 loggerBold "*Este script ha sido probado en EndeavourOS/Manjaro*"

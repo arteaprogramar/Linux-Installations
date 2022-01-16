@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source $(dirname "$0")/../utils/text.sh
-source $(dirname "$0")/../utils/file.sh
-source $(dirname "$0")/../utils/os.sh
+source $(dirname "$0")/../../utils/os.sh
+source $(dirname "$0")/../../utils/file.sh
+source $(dirname "$0")/../../utils/text.sh
 
 info "Instalación de Microsoft Edge" "1.0"
 

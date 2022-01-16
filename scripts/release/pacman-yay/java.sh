@@ -1,8 +1,8 @@
 #!/bin/bash
 
-source $(dirname "$0")/../utils/os.sh
-source $(dirname "$0")/../utils/file.sh
-source $(dirname "$0")/../utils/text.sh
+source $(dirname "$0")/../../utils/os.sh
+source $(dirname "$0")/../../utils/file.sh
+source $(dirname "$0")/../../utils/text.sh
 
 # Script info
 info "Instalación de Java (OpenJRE-OpenJDK)" "1.0"
