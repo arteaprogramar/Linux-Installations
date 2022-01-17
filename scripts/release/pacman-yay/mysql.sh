@@ -8,11 +8,14 @@ info "Instalación de MySQL Server 5.7" "1.0"
 
 # Documentacion
 documentation "MySQL Dev" "https://dev.mysql.com/doc/refman/5.7/en/binary-installation.html"
+documentation "MySQL Dev" "https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html"
 
 # Variables
 osName=$(getNameOs)
 osNumber=$(getVersionOs)
-mysqlVersion="mysql-5.7.36-linux-glibc2.12-x86_64"
+mysql5="mysql-5.7.36-linux-glibc2.12-x86_64"
+mysql8="mysql-8.0.27-linux-glibc2.17-x86_64-minimal"
+mysqlVersion=""
 configPath="export MYSQL_HOME=/usr/local/mysql \\\\\nexport PATH=\\\${MYSQL_HOME}/bin:\\\${PATH}"
 
 # Crear folder temporal
@@ -22,7 +25,7 @@ movetoTemp
 
 # Actualización del sistema
 loggerBold "\n\nActualizando sistema"
-sudo pacman -Syu
+sudo pacman -Syu --noconfirm
 
 # Comprobar si makepkg esta instado
 loggerBold "\n\nComprobar si makepkg esta instado"
@@ -63,18 +66,48 @@ sudo pacman -Sy numactl --noconfirm
 loggerBold "\n\nInstalación de paquetes adicionales (ncurses5-compat-libs)"
 yay -Sy ncurses5-compat-libs --noconfirm
 
+# Versión de MySQL ha instalar
+loggerBold "\n\nMenú de versiones disponibles de MySQL Server"
+logger "Para instalar \033[1mMySQL 5.7\033[0m ingrese \033[1m0\033[0m"
+logger "Para instalar \033[1mMySQL 8.0\033[0m ingrese \033[1m1\033[0m"
+versionToInstall=""
+
+while [[ ! versionToInstall =~ ^[0-1]{1} ]]; do
+    read -p "¿Que versión de MySQL Server deseas instalar? : " versionToInstall
+    
+    if [[ ! $versionToInstall =~ ^[0-1]{1} ]]; then
+        versionToInstall=""
+    elif [ $versionToInstall -ge 2 ]; then
+        versionToInstall=""
+    else 
+        # Descargar la última versión de MySQL Server
+        loggerBold "\n\nDescargar la última versión de MySQL Server"
+        
+        if [[ $versionToInstall == 0 ]]; then
+            mysqlVersion="$mysql5"
+            wget https://dev.mysql.com/get/Downloads/MySQL-5.7/"$mysqlVersion".tar.gz
+
+            # Descomprimir archivo descargado
+            loggerBold "\n\nDescomprimir archivo descargado"
+            tar zxvf "$mysqlVersion".tar.gz
+        else
+            mysqlVersion="$mysql8"
+            wget https://dev.mysql.com/get/Downloads/MySQL-8.0/"$mysqlVersion".tar.xz
+
+            # Descomprimir archivo descargado
+            loggerBold "\n\nDescomprimir archivo descargado"
+            tar -xvf "$mysqlVersion".tar.xz
+        fi
+        
+        break
+    fi
+
+done
+
 # Crear un usuario y un grupo mysql
 loggerBold "\n\nCrear un usuario y un grupo MySQL"
 sudo groupadd mysql
 sudo useradd -r -g mysql -s /bin/false mysql
-
-# Descargar la última versión de MySQL Server 5.7
-loggerBold "\n\nDescargar la última versión de MySQL Server 5.7"
-wget https://dev.mysql.com/get/Downloads/MySQL-5.7/"$mysqlVersion".tar.gz
-
-# Descomprimir archivo descargado
-loggerBold "\n\nDescomprimir archivo descargado"
-tar zxvf "$mysqlVersion".tar.gz
 
 # Copiar MySQL Server a /usr/local
 loggerBold "\n\nCopiar MySQL Server a /usr/local"
@@ -111,7 +144,7 @@ loggerBold "\n\nConfiguración básica de seguridad de MySQL Server"
 sudo bin/mysql_secure_installation
 
 # Instalar MySQL Workbench
-sudo pacman -Sy mysql-workbench
+sudo pacman -S mysql-workbench --noconfirm
 
 # Agregar al PATH Linux MySQL Server
 loggerBold "\n\nAgregar MySQL al PATH de Linux"
