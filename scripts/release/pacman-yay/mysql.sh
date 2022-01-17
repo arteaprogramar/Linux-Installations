@@ -136,6 +136,7 @@ sudo bin/mysqld_safe --user=mysql &
 
 # Conocer el estado del Servicio de MySQL Server
 loggerBold "\n\nConocer el estado del Servicio de MySQL Server"
+sudo cp support-files/mysql.server bin/mysql.server
 sudo support-files/mysql.server start
 sudo support-files/mysql.server status
 
