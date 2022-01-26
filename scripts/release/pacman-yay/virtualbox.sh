@@ -16,7 +16,7 @@ documentation "Wiki Manjaro" "https://wiki.manjaro.org/index.php/VirtualBox"
 osName=$(getNameOs)
 osVersion=$(getIdOs)
 
-if [[ $osName == "Arch Linux" ]]; then
+if [[ $osName == "Arch Linux" ||  $osName == "EndeavourOS" ]]; then
     # Instalación de kernel headers
     loggerBold "\n\nInstalación de kernel headers"
     logger "¿Que versión del kernel-headers desea instalar?"
