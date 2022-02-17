@@ -58,13 +58,16 @@ loggerBold "\n\nInstalación o comprobación de YAY"
 
 # Instalación de paquetes adicionales
 loggerBold "\n\nInstalación de paquetes adicionales (libaio)"
-sudo pacman -Sy libaio --noconfirm
+sudo pacman -S libaio --noconfirm
 
 loggerBold "\n\nInstalación de paquetes adicionales (numactl)"
-sudo pacman -Sy numactl --noconfirm
+sudo pacman -S numactl --noconfirm
 
 loggerBold "\n\nInstalación de paquetes adicionales (ncurses5-compat-libs)"
-yay -Sy ncurses5-compat-libs --noconfirm
+yay -S ncurses5-compat-libs --noconfirm
+
+loggerBold "\n\nInstalación de paquetes adicionales (libcrypt.so.1 legacy)"
+yay -S libxcrypt-compat --noconfirm
 
 # Versión de MySQL ha instalar
 loggerBold "\n\nMenú de versiones disponibles de MySQL Server"
