@@ -67,7 +67,7 @@ loggerBold "\n\nInstalación de paquetes adicionales (ncurses5-compat-libs)"
 yay -S ncurses5-compat-libs --noconfirm
 
 loggerBold "\n\nInstalación de paquetes adicionales (libcrypt.so.1 legacy)"
-yay -S libxcrypt-compat --noconfirm
+sudo pacman -S libxcrypt-compat --noconfirm
 
 # Versión de MySQL ha instalar
 loggerBold "\n\nMenú de versiones disponibles de MySQL Server"
