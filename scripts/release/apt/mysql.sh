@@ -25,49 +25,21 @@ movetoTemp
 
 # Actualización del sistema
 loggerBold "\n\nActualizando sistema"
-sudo pacman -Syu --noconfirm
-
-# Comprobar si makepkg esta instado
-loggerBold "\n\nComprobar si makepkg esta instado"
-{
-    makepkg --version
-} || {
-    # Instalación de Base-Devel
-    loggerBold "\n\nConfirma la instalación de base-devel con un *enter*"
-    loggerBold "Para instalar todos los paquetes"
-    sudo pacman -Sy base-devel --noconfirm
-}
-
-# Instalación o comprobación de YAY
-loggerBold "\n\nInstalación o comprobación de YAY"
-{
-    yay --version
-} || {
-    # Descarga de YAY Helper
-    loggerBold "\n\nDescarga de YAY Helper"
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    
-    # Instalación de YAY Helper
-    loggerBold "\n\nInstalación de YAY Helper"
-    logger "Confirma la instalación de paquetes adicionales"
-    ls -l
-    logger "\n\n"
-    makepkg -si
-}
+sudo apt -y upgrade
 
 # Instalación de paquetes adicionales
 loggerBold "\n\nInstalación de paquetes adicionales (libaio)"
-sudo pacman -S libaio --noconfirm
+sudo apt -y install libaio1
 
 loggerBold "\n\nInstalación de paquetes adicionales (numactl)"
-sudo pacman -S numactl --noconfirm
+sudo apt -y install numactl
 
 loggerBold "\n\nInstalación de paquetes adicionales (ncurses5-compat-libs)"
-yay -S ncurses5-compat-libs --noconfirm
+sudo add-apt-repository universe
+sudo apt -y install libncurses5 libncurses5:i386
 
-loggerBold "\n\nInstalación de paquetes adicionales (libcrypt.so.1 legacy)"
-sudo pacman -S libxcrypt-compat --noconfirm
+# loggerBold "\n\nInstalación de paquetes adicionales (libcrypt.so.1 legacy)"
+# sudo pacman -S libxcrypt-compat --noconfirm
 
 # Versión de MySQL ha instalar
 loggerBold "\n\nMenú de versiones disponibles de MySQL Server"
@@ -148,7 +120,7 @@ loggerBold "\n\nConfiguración básica de seguridad de MySQL Server"
 sudo bin/mysql_secure_installation
 
 # Instalar MySQL Workbench
-sudo pacman -S mysql-workbench --noconfirm
+sudo apt -y install mysql-workbench
 
 # Agregar al PATH Linux MySQL Server
 loggerBold "\n\nAgregar MySQL al PATH de Linux"
