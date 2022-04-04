@@ -18,6 +18,14 @@ loggerBold "Comprobar si Java esta instalado"
     exit
 }
 
+# Instalación de wget
+{
+    wget --version
+} || {
+    loggerBold "\n\nInstalación de WGET"
+    sudo pacman -S wget --noconfirm
+}
+
 # Comprobar si script se esta ejecutando como usuario root
 if [[ $(getUser) != "root" ]]; then
     userRootRequired

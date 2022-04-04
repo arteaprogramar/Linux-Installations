@@ -56,6 +56,14 @@ loggerBold "\n\nInstalación o comprobación de YAY"
     makepkg -si
 }
 
+# Instalación de wget
+{
+    wget --version
+} || {
+    loggerBold "\n\nInstalación de WGET"
+    sudo pacman -S wget --noconfirm
+}
+
 # Instalación de paquetes adicionales
 loggerBold "\n\nInstalación de paquetes adicionales (libaio)"
 sudo pacman -S libaio --noconfirm
