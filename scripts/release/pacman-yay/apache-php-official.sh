@@ -90,7 +90,7 @@ while [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; do
             sudo pacman -S php-apache php-cgi php-dblib php-embed php-enchant php-fpm php-gd php-imap php-intl php-odbc php-pgsql php-phpdbg php-pspell php-snmp php-sodium php-sqlite php-tidy php-xsl php-mongodb php-memcache  --noconfirm
 
             # Instalacion de PHP Composer
-            loggerBold "\n\nInstalación de extensiones de PHP"
+            loggerBold "\n\nInstalacion de PHP Composer"
             sudo pacman -S composer --noconfirm
         else 
             sudo pacman -S php"$php" php"$php"-apache  --noconfirm
@@ -100,7 +100,7 @@ while [[ ! $versionToInstall =~ ^[0-9]{1,2} ]]; do
             sudo pacman -S php"$php"-apache php"$php"-cgi php"$php"-dblib php"$php"-embed php"$php"-enchant php"$php"-fpm php"$php"-gd php"$php"-imap php"$php"-intl php"$php"-odbc php"$php"-pgsql php"$php"-phpdbg php"$php"-pspell php"$php"-snmp php"$php"-sodium php"$php"-sqlite php"$php"-tidy php"$php"-xsl php"$php"-mongodb php"$php"-memcache  --noconfirm
         
             # Instalacion de PHP Composer
-            loggerBold "\n\nInstalación de extensiones de PHP"
+            loggerBold "\n\nInstalacion de PHP Composer"
             sudo ln -s /usr/bin/php"$php" /usr/bin/php
             sudo pacman -Sdd composer --noconfirm
         fi
