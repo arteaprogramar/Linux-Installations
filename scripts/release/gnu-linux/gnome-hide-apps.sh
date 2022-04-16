@@ -14,8 +14,7 @@ if [[ $(getUser) != "root" ]]; then
 fi
 
 proper="
-NoDisplay=true\n
-Hidden=true
+NoDisplay=true\nHidden=true
 "
 
 loggerBold "\n\nOcultar aplicaciones de Avahi"
@@ -38,7 +37,7 @@ echo -e $proper >> /usr/share/applications/org.gnome.SettingsDaemon.Wwan.desktop
 echo -e $proper >> /usr/share/applications/org.gnome.SettingsDaemon.Wacom.desktop
 
 loggerBold "\n\nOcultar aplicacion de Gnome-Tracker"
-mv /usr/lib/tracker-miner-fs-3 /usr/lib/tracker-miner-fs-3-disable
+#mv /usr/lib/tracker-miner-fs-3 /usr/lib/tracker-miner-fs-3-disable
 echo -e $proper >> /etc/xdg/autostart/tracker-extract.desktop
 echo -e $proper >> /etc/xdg/autostart/tracker-miner-apps.desktop
 echo -e $proper >> /etc/xdg/autostart/tracker-miner-fs.desktop

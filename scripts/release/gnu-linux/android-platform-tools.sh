@@ -28,7 +28,7 @@ loggerBold "\n\nDescargar última version de Platform-Tools para GNULinux"
     wget --version
 } || {
     # Require instalar wget
-    loggerBold "\n\n*Gradle.sh* requiere del paquete wget"
+    loggerBold "\n\nRequiere del paquete wget"
     logger "Por favor instale *wget* en su GNULinux"
     exit
 }

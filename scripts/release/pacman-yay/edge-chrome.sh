@@ -10,7 +10,7 @@ loggerBold "*Este script ha sido probado en ArchLinux/EndeavourOS/Manjaro*"
 
 # Realizar actualización del sistema
 loggerBold "\nRealizar actualización del sistema"
-sudo pacman -Syyu 
+sudo pacman -Syyu --noconfirm
 
 # Instalación o comprobación de YAY
 loggerBold "\n\nInstalación o comprobación de YAY"

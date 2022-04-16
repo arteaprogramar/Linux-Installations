@@ -13,7 +13,7 @@ documentation "Wiki Arch" "https://wiki.archlinux.org/title/java"
 
 # Realizar actualización del sistema
 loggerBold "\nRealizar actualización del sistema"
-sudo pacman -Syyu 
+sudo pacman -Syyu --noconfirm
 
 # Buscar versiones de Java Disponibles
 loggerBold "\nBuscar versiones disponibles de Java open-(jre/jdk)"
