@@ -64,6 +64,14 @@ loggerBold "\n\nInstalación o comprobación de YAY"
     sudo pacman -S wget --noconfirm
 }
 
+# Comprobar nuevamente wget
+{
+	wget --version
+} || {
+	loggerBold "\n\nHa ocurrido un error, intente nuevamente"
+	exit
+}
+
 # Instalación de paquetes adicionales
 loggerBold "\n\nInstalación de paquetes adicionales (libaio)"
 sudo pacman -S libaio --noconfirm
@@ -82,6 +90,7 @@ loggerBold "\n\nMenú de versiones disponibles de MySQL Server"
 logger "Para instalar \033[1mMySQL 5.7\033[0m ingrese \033[1m0\033[0m"
 logger "Para instalar \033[1mMySQL 8.0\033[0m ingrese \033[1m1\033[0m"
 versionToInstall=""
+sleep 2
 
 while [[ ! versionToInstall =~ ^[0-1]{1} ]]; do
     read -p "¿Que versión de MySQL Server deseas instalar? : " versionToInstall

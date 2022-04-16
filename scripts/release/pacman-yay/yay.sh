@@ -24,6 +24,14 @@ movetoTemp
 loggerBold "\n\nActualización del sistema"
 sudo pacman -Syu --noconfirm
 
+# Comprobar si esta instalado Git
+loggerBold "\n\nComprobar versión de git"
+{
+	git --version
+} || {
+	sudo pacman -S git --noconfirm
+}
+
 # Instalación o comprobación de YAY
 loggerBold "\n\nInstalación o comprobación de YAY"
 
@@ -37,7 +45,7 @@ loggerBold "\n\nInstalación o comprobación de YAY"
     
     # Instalación de YAY Helper
     loggerBold "\n\nInstalación de YAY Helper"
-    makepkg -si
+    makepkg -si --noconfirm
 }
 
 # Resultado
