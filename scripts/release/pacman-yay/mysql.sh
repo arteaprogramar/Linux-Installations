@@ -13,8 +13,8 @@ documentation "MySQL Dev" "https://dev.mysql.com/doc/refman/8.0/en/binary-instal
 # Variables
 osName=$(getNameOs)
 osNumber=$(getVersionOs)
-mysql5="mysql-5.7.37-linux-glibc2.12-x86_64"
-mysql8="mysql-8.0.28-linux-glibc2.17-x86_64-minimal"
+mysql5="mysql-5.7.38-linux-glibc2.12-x86_64"
+mysql8="mysql-8.0.30-linux-glibc2.17-x86_64-minimal"
 mysqlVersion=""
 configPath="export MYSQL_HOME=/usr/local/mysql \\\\\nexport PATH=\\\${MYSQL_HOME}/bin:\\\${PATH}"
 
