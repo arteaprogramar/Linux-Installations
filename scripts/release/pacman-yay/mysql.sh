@@ -126,6 +126,7 @@ done
 
 # Crear un usuario y un grupo mysql
 loggerBold "\n\nCrear un usuario y un grupo MySQL"
+sudo sudo cat /etc/os-release
 sudo groupadd mysql
 sudo useradd -r -g mysql -s /bin/false mysql
 
@@ -157,31 +158,45 @@ sudo bin/mysqld_safe --user=mysql &
 # Conocer el estado del Servicio de MySQL Server
 loggerBold "\n\nConocer el estado del Servicio de MySQL Server"
 sudo cp support-files/mysql.server bin/mysql.server
-sudo support-files/mysql.server start
 sudo support-files/mysql.server status
+
+# Inicializar MySQL
+loggerBold "\n\nIMPORTANTE!!"
+loggerBold "Ingresa la contraseña temporal generada por MySQL en el paso anterior."
+sudo support-files/mysql.server start
 
 # Configuración básica de seguridad de MySQL Server
 loggerBold "\n\nConfiguración básica de seguridad de MySQL Server"
-sudo bin/mysql_secure_installation
+{
+    sudo bin/mysql_secure_installation
+} || {
+    sudo bin/mysql_secure_installation
+}
 
 # Instalar MySQL Workbench
 sudo pacman -S mysql-workbench --noconfirm
 
+# Verificacion del archivo
+path=false
+
 # Agregar al PATH Linux MySQL Server
 loggerBold "\n\nAgregar MySQL al PATH de Linux"
-while [[ ! -f /etc/profile.d/mysql.sh ]]; do
-    logger "Ingresa tu contraseña correctamente"
-    su -c "echo -e $configPath > /etc/profile.d/mysql.sh; chmod +x /etc/profile.d/mysql.sh; source /etc/profile.d/mysql.sh" root
-done
 
-# Información de MySQL
-if [[ -f /etc/profile.d/mysql.sh ]]; then
-	loggerBold "\nSe ha agregado MySQLServer a PATH Linux"
-	logger "Inicar MySQL Server : mysql.server start"
-	logger "Estado MySQL Server : mysql.server status"
-	logger "Detener MySQL Server : mysql.server stop"
-	sudo support-files/mysql.server status
-fi
+while [[ "$path" = false ]]; do
+
+    if [[ -f /etc/profile.d/mysql.sh ]]; then
+        loggerBold "\nSe ha agregado MySQLServer a PATH Linux"
+        logger "Inicar MySQL Server : mysql.server start"
+        logger "Estado MySQL Server : mysql.server status"
+        logger "Detener MySQL Server : mysql.server stop"
+        sudo support-files/mysql.server status
+        path=true
+    else
+        logger "Ingresa tu contraseña correctamente"
+        su -c "echo -e $configPath > /etc/profile.d/mysql.sh; chmod +x /etc/profile.d/mysql.sh; source /etc/profile.d/mysql.sh" root
+    fi
+
+done
 
 # Resultado
 loggerBold "\n\nSe ha instalado correctamente MySQL Server y Workbench"
