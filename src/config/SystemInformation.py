@@ -1,5 +1,6 @@
 import os
 import platform
+import subprocess
 import sys
 
 
@@ -31,9 +32,9 @@ def has_root_permission():
 def request_root_permission():
     if not has_root_permission():
         print("El script requiere permisos administrativos")
-        args = ['sudo', sys.executable] + sys.argv + [os.environ]
-        print(args)
-        os.execlpe('sudo', *args)
+        # args = ['sudo', sys.executable] + sys.argv + [os.environ]
+        # os.execlpe('sudo', *args)
+        subprocess.call(['sudo', 'sudo', '--version', '&>/dev/null'])
 
     return has_root_permission()
 

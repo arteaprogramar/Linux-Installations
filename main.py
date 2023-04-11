@@ -2,7 +2,6 @@
 import json
 
 import run
-from src.app.gnu import printing
 from src.config import SystemInformation, PackageManager
 
 

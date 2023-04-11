@@ -3,5 +3,10 @@
         "name": "Android Platform Tools",
         "manager": "gnu",
         "pkg": "adb"
+    },
+    {
+        "name": "Flutter",
+        "manager": "gnu",
+        "pkg": "flutter"
     }
 ]

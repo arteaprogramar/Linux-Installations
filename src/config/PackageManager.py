@@ -1,8 +1,6 @@
 import os
 import subprocess
 
-from src.app.gnu import printing
-
 APT_MANAGER = 'apt'
 DNF_MANAGER = 'dnf'
 YAY_MANAGER = 'yay'
@@ -29,11 +27,11 @@ def apt_install(pkg: str):
 
 
 def pacman_install(pkg: str):
-    os.system(f'sudo pacman -S {pkg}')
+    os.system(f'sudo pacman -S {pkg} --noconfirm')
 
 
 def yay_install(pkg: str):
-    os.system(f'sudo yay -S {pkg}')
+    os.system(f'sudo yay -S {pkg} --noconfirm')
 
 
 def try_install(manager: str, pkg: str):

@@ -1,14 +1,17 @@
 import os
 
 from src.app.common import wget_util, uncompress
-from src.app.gnu import printing
 from src.config import PackageManager, TemporalFile, SystemInformation
 
-_ADB_PATH_LINUX = '/etc/profile.d/adb.sh'
 _TITLE = 'Instalación de Android Platforms Tools'
+
+_ADB_PATH_LINUX = '/etc/profile.d/adb.sh'
+_ADB_VERSION = 'platform-tools-latest-linux.zip'
+_ADB_PATH = '/opt/platform-tools'
+
 _EXPORT_PATH = """#!/bin/sh
 export ADB_HOME=/opt/platform-tools
-export PATH=${ADB_HOME}:${PATH}
+export PATH=\${ADB_HOME}:\${PATH}
 """
 
 
@@ -38,32 +41,30 @@ def start():
         return
 
     printing.title('Descarga de ADB')
-    wget_util.download('https://dl.google.com/android/repository/platform-tools-latest-linux.zip')
+    wget_util.download(f'https://dl.google.com/android/repository/{_ADB_VERSION}')
 
     printing.title('Descomprimir ADB')
-    uncompress.unzip(f'{TemporalFile.FOLDER_TEMP}/platform-tools-latest-linux.zip', TemporalFile.FOLDER_TEMP)
+    uncompress.unzip(f'{TemporalFile.FOLDER_TEMP}/{_ADB_VERSION}', TemporalFile.FOLDER_TEMP)
 
     printing.title('Mover ADB a /opt/')
     SystemInformation.request_root_permission()
-    os.system('sudo mv temp/platform-tools /opt/platform-tools')
+    os.system(f'sudo mv temp/platform-tools {_ADB_PATH}')
 
     printing.title('Agregar adb al Path de Linux')
-    file = open(f'{_ADB_PATH_LINUX}', 'w')
-    file.write(_EXPORT_PATH)
-    file.close()
+    os.system(f'echo """{_EXPORT_PATH}""" | sudo tee -a {_ADB_PATH_LINUX}')
 
     printing.title('Agregar permiso de ejecución al adb en el path de Linux')
-    os.system(f'chmod +x {_ADB_PATH_LINUX}')
+    os.system(f'sudo chmod +x {_ADB_PATH_LINUX}')
 
     try:
         os.system(f"su -c '{_ADB_PATH_LINUX}' root")
 
         printing.title('Mostrar información del adb')
-        os.system('/opt/platform-tools/adb --version')
+        os.system(f'{_ADB_PATH}/adb --version')
 
         printing.message('En algunas distribuciones requiere reiniciar el sistema')
     except OSError:
         printing.warning('Deberá ejecutar el siguiente comando para agregar ADB al PATH de Linux')
-        printing.message('source /etc/profile.d/adb.sh')
+        printing.message(f'source {_ADB_PATH_LINUX}')
 
     TemporalFile.folder_delete('temp')
