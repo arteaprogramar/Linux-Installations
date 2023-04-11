@@ -1,7 +1,8 @@
 import os
 import platform
 import subprocess
-import sys
+
+from src.config import Printing
 
 
 class _SystemInformation:
@@ -31,7 +32,7 @@ def has_root_permission():
 
 def request_root_permission():
     if not has_root_permission():
-        print("El script requiere permisos administrativos")
+        Printing.title("El script requiere permisos administrativos")
         # args = ['sudo', sys.executable] + sys.argv + [os.environ]
         # os.execlpe('sudo', *args)
         subprocess.call(['sudo', 'sudo', '--version', '&>/dev/null'])

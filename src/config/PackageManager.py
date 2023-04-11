@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+from src.config import Printing
+
 APT_MANAGER = 'apt'
 DNF_MANAGER = 'dnf'
 YAY_MANAGER = 'yay'
@@ -62,7 +64,7 @@ def pkg_exists(pkg: str):
 
 
 def pkg_has_installed(title: str, manager: str, pkg: str):
-    printing.title(title)
+    Printing.title(title)
     installed = pkg_exists(pkg)
 
     if not installed:

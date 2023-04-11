@@ -1,7 +1,7 @@
 import os
 
 from src.app.common import wget_util, uncompress
-from src.config import PackageManager, TemporalFile, SystemInformation
+from src.config import PackageManager, TemporalFile, SystemInformation, Printing
 
 _TITLE = 'Instalación de Flutter'
 
@@ -16,10 +16,10 @@ export PATH=\${FLUTTER_HOME}/bin:\${PATH}
 
 
 def init(manager: str):
-    printing.title(_TITLE)
+    Printing.title(_TITLE)
 
     # Dependecias
-    printing.title('Instalación de dependencias')
+    Printing.title('Instalación de dependencias')
     PackageManager.pkg_has_installed('Instalación de Bash', manager, 'bash')
     PackageManager.pkg_has_installed('Instalación de curl', manager, 'curl')
     PackageManager.pkg_has_installed('Instalación de file', manager, 'file')
@@ -32,11 +32,11 @@ def init(manager: str):
     PackageManager.pkg_has_installed('Instalación de cmake', manager, 'cmake')
     PackageManager.pkg_has_installed('Instalación de clang', manager, 'clang')
 
-    printing.title('Instalación de CoreUtils')
+    Printing.title('Instalación de CoreUtils')
     PackageManager.try_install(manager, 'coreutils')
 
     # Instalación de xz
-    printing.message('Instalación de xz & mesa')
+    Printing.message('Instalación de xz & mesa')
 
     if manager == PackageManager.APT_MANAGER:
         PackageManager.try_install(manager, 'xz-utils')
@@ -55,36 +55,37 @@ def init(manager: str):
 
 
 def start():
-    printing.welcome(_TITLE)
-    printing.title('Crear carpeta temporal')
+    Printing.welcome(_TITLE)
+    Printing.title('Crear carpeta temporal')
     TemporalFile.temp_folder_create()
 
-    printing.title('Descargar Flutter')
+    Printing.title('Descargar Flutter')
     wget_util.download(f'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/{_FLUTTER_VERSION}')
 
-    printing.title('Descomprimir Flutter')
+    Printing.title('Descomprimir Flutter')
     uncompress.un_tarxz(f'{TemporalFile.FOLDER_TEMP}/{_FLUTTER_VERSION}', TemporalFile.FOLDER_TEMP)
 
-    printing.title('Mover Flutter a /opt/')
+    Printing.title('Mover Flutter a /opt/')
     SystemInformation.request_root_permission()
     os.system(f'sudo mv temp/flutter {_FLUTTER_PATH}')
 
-    printing.title('Agregar Flutter al Path de Linux')
+    Printing.title('Agregar Flutter al Path de Linux')
     os.system(f'echo """{_EXPORT_PATH}""" | sudo tee -a {_FLUTTER_PATH_LINUX}')
 
-    printing.title('Agregar permiso de ejecución al adb en el path de Linux')
+    Printing.title('Agregar permiso de ejecución al adb en el path de Linux')
     os.system(f'sudo chmod +x {_FLUTTER_PATH_LINUX}')
 
     try:
-        os.system(f"su -c '{_FLUTTER_PATH_LINUX}' root")
+        Printing.title(f'Se require su contraseña para aplicar el comando $ source {_FLUTTER_PATH_LINUX}')
+        os.system(f"su -c 'source {_FLUTTER_PATH_LINUX}' root")
 
-        printing.title('Mostrar información de Flutter')
+        Printing.title('Mostrar información de Flutter')
         os.system(f'{_FLUTTER_PATH}/bin/flutter doctor')
 
-        printing.message('En algunas distribuciones requiere reiniciar el sistema')
+        Printing.message('En algunas distribuciones requiere reiniciar el sistema')
     except OSError:
-        printing.warning('Deberá ejecutar el siguiente comando para agregar ADB al PATH de Linux')
-        printing.message(f'source {_FLUTTER_PATH_LINUX}')
+        Printing.warning('Deberá ejecutar el siguiente comando para agregar ADB al PATH de Linux')
+        Printing.message(f'source {_FLUTTER_PATH_LINUX}')
 
     TemporalFile.folder_delete('temp')
 

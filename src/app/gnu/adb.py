@@ -1,7 +1,7 @@
 import os
 
 from src.app.common import wget_util, uncompress
-from src.config import PackageManager, TemporalFile, SystemInformation
+from src.config import PackageManager, TemporalFile, SystemInformation, Printing
 
 _TITLE = 'Instalación de Android Platforms Tools'
 
@@ -16,55 +16,56 @@ export PATH=\${ADB_HOME}:\${PATH}
 
 
 def init(manager: str):
-    printing.title(_TITLE)
+    Printing.title(_TITLE)
 
     # Dependecias
     wget_installed = PackageManager.pkg_has_installed('Comprobar WGET', manager, 'wget')
     unzip_installed = PackageManager.pkg_has_installed('Comprobar UNZIP', manager, 'unzip')
 
     if not wget_installed & unzip_installed:
-        printing.warning('Se requieren las depencias WGET y/o UNZIP para ejecutar este script')
+        Printing.warning('Se requieren las depencias WGET y/o UNZIP para ejecutar este script')
 
     PackageManager.clear()
     start()
 
 
 def start():
-    printing.welcome(_TITLE)
-    printing.message('WGET y UNZIP estan disponibles en el script')
+    Printing.welcome(_TITLE)
+    Printing.message('WGET y UNZIP estan disponibles en el script')
 
-    printing.title('Crear carpeta temporal')
+    Printing.title('Crear carpeta temporal')
     temp_created = TemporalFile.temp_folder_create()
 
     if not temp_created:
-        printing.warning('No se ha podido crear la carpeta temporal')
+        Printing.warning('No se ha podido crear la carpeta temporal')
         return
 
-    printing.title('Descarga de ADB')
+    Printing.title('Descarga de ADB')
     wget_util.download(f'https://dl.google.com/android/repository/{_ADB_VERSION}')
 
-    printing.title('Descomprimir ADB')
+    Printing.title('Descomprimir ADB')
     uncompress.unzip(f'{TemporalFile.FOLDER_TEMP}/{_ADB_VERSION}', TemporalFile.FOLDER_TEMP)
 
-    printing.title('Mover ADB a /opt/')
+    Printing.title('Mover ADB a /opt/')
     SystemInformation.request_root_permission()
     os.system(f'sudo mv temp/platform-tools {_ADB_PATH}')
 
-    printing.title('Agregar adb al Path de Linux')
+    Printing.title('Agregar adb al Path de Linux')
     os.system(f'echo """{_EXPORT_PATH}""" | sudo tee -a {_ADB_PATH_LINUX}')
 
-    printing.title('Agregar permiso de ejecución al adb en el path de Linux')
+    Printing.title('Agregar permiso de ejecución al adb en el path de Linux')
     os.system(f'sudo chmod +x {_ADB_PATH_LINUX}')
 
     try:
-        os.system(f"su -c '{_ADB_PATH_LINUX}' root")
+        Printing.title(f'Se require su contraseña para aplicar el comando $ source {_ADB_PATH_LINUX}')
+        os.system(f"su -c 'source {_ADB_PATH_LINUX}' root")
 
-        printing.title('Mostrar información del adb')
+        Printing.title('Mostrar información del adb')
         os.system(f'{_ADB_PATH}/adb --version')
 
-        printing.message('En algunas distribuciones requiere reiniciar el sistema')
+        Printing.message('En algunas distribuciones requiere reiniciar el sistema')
     except OSError:
-        printing.warning('Deberá ejecutar el siguiente comando para agregar ADB al PATH de Linux')
-        printing.message(f'source {_ADB_PATH_LINUX}')
+        Printing.warning('Deberá ejecutar el siguiente comando para agregar ADB al PATH de Linux')
+        Printing.message(f'source {_ADB_PATH_LINUX}')
 
     TemporalFile.folder_delete('temp')

@@ -2,7 +2,7 @@
 import json
 
 import run
-from src.config import SystemInformation, PackageManager
+from src.config import SystemInformation, PackageManager, Printing
 
 
 def parser_int(value: str):
@@ -13,18 +13,18 @@ def parser_int(value: str):
 
 
 def start():
-    printing.welcome()
+    Printing.welcome()
 
     pkgs = []
     manager = PackageManager.get_pm()
 
-    printing.message('-----------------------------------------------------------')
-    printing.message(f'Sistema Operativo : {SystemInformation.getInformation.get_name_system()}')
-    printing.message(f'Versión del Sistema : {SystemInformation.getInformation.get_id_system()}')
-    printing.message(f'Versión del Kernel : {SystemInformation.getInformation.get_kernel_version()}')
-    printing.message(f'Gestor de Paquetes : {manager}')
-    printing.message('-----------------------------------------------------------')
-    printing.message('\n')
+    Printing.message('-----------------------------------------------------------')
+    Printing.message(f'Sistema Operativo : {SystemInformation.getInformation.get_name_system()}')
+    Printing.message(f'Versión del Sistema : {SystemInformation.getInformation.get_id_system()}')
+    Printing.message(f'Versión del Kernel : {SystemInformation.getInformation.get_kernel_version()}')
+    Printing.message(f'Gestor de Paquetes : {manager}')
+    Printing.message('-----------------------------------------------------------')
+    Printing.message('\n')
 
     apps = open('src/apps.json')
 
@@ -36,7 +36,7 @@ def start():
 
 
 def show_menu(manager: str, lists):
-    printing.title('Lista de paquetes disponibles para instalar', False)
+    Printing.title('Lista de paquetes disponibles para instalar', False)
 
     for index, pkg in enumerate(lists):
         print(f"[{index}] {pkg['name']}")
