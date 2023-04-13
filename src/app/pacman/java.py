@@ -43,3 +43,6 @@ def init(pkg: str):
 
     packages = f'{jre}-headless jre{version}-openjdk {jdk}-openjdk openjdk{version}-doc openjdk{version}-src'
     os.system(f'sudo pacman -S {packages} --noconfirm')
+
+    Printing.title('Se ha instalado java')
+    os.system('java --version')
