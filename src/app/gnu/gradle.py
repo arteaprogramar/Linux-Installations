@@ -74,7 +74,7 @@ def start():
 
     Printing.title('Mover Gradle a /opt/')
     SystemInformation.request_root_permission()
-    os.system(f"sudo mv temp/gradle-{version} {_GRADLE_PATH}")
+    os.system(f"sudo mv temp/gradle-{gradle} {_GRADLE_PATH}")
 
     Printing.title('Agregar Gradle al Path de Linux')
     os.system(f'echo """{_EXPORT_PATH}""" | sudo tee -a {_GRADLE_PATH_LINUX}')

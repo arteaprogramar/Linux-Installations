@@ -24,6 +24,7 @@ def welcome(pkgToInstalled=None):
 
 
 def title(txt: str, jumpLine=True):
+    print('')
     print(Color.BOLD + txt + Color.END)
 
     if jumpLine:

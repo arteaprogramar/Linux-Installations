@@ -16,3 +16,4 @@ def gnu_gradle(manager: str):
 
 def pacman_java(manager: str):
     java.init(manager)
+
