@@ -1,4 +1,5 @@
 #!/bin/python
+
 import json
 
 import run
@@ -47,7 +48,7 @@ def show_menu(manager: str, lists):
     while continue_menu:
         selected = parser_int(input('Ingrese un número: '))
 
-        if selected >= 0 & selected <= len(lists):
+        if selected < len(lists):
             continue_menu = False
 
     running = getattr(run, f"{lists[selected]['manager']}_{lists[selected]['pkg']}")

@@ -8,5 +8,15 @@
         "name": "Flutter",
         "manager": "gnu",
         "pkg": "flutter"
+    },
+    {
+        "name": "Gradle",
+        "manager": "gnu",
+        "pkg": "gradle"
+    },
+    {
+        "name" : "Java",
+        "manager": "pacman",
+        "pkg": "java"
     }
 ]

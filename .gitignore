@@ -7,4 +7,5 @@ temp
 /src/config/__pycache__
 /src/app/common/__pycache__
 /src/app/gnu/__pycache__
+/src/app/pacman/__pycache__
 /src/app/__pycache__

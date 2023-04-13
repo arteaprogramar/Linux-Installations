@@ -1,4 +1,5 @@
 import os
+import shutil
 
 FOLDER_TEMP = 'temp'
 
@@ -21,7 +22,7 @@ def temp_folder_create():
 def folder_delete(path: str):
     try:
         if folder_exists(path):
-            os.removedirs(path)
+            shutil.rmtree(path)
 
         return not folder_exists(path)
     except OSError:

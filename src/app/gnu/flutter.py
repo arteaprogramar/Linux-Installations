@@ -7,7 +7,7 @@ _TITLE = 'Instalación de Flutter'
 
 _FLUTTER_VERSION = 'flutter_linux_3.7.10-stable.tar.xz'
 _FLUTTER_PATH_LINUX = '/etc/profile.d/flutter.sh'
-_FLUTTER_PATH= '/opt/Flutter'
+_FLUTTER_PATH = '/opt/Flutter'
 
 _EXPORT_PATH = """#!/bin/sh
 export FLUTTER_HOME=/opt/Flutter
@@ -88,4 +88,3 @@ def start():
         Printing.message(f'source {_FLUTTER_PATH_LINUX}')
 
     TemporalFile.folder_delete('temp')
-
