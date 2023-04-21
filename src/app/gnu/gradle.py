@@ -73,7 +73,7 @@ def start():
     uncompress.unzip(f'{TemporalFile.FOLDER_TEMP}/{_GRADLE_VERSION.format(gradle)}', TemporalFile.FOLDER_TEMP)
 
     Printing.title('Mover Gradle a /opt/')
-    SystemInformation.request_root_permission()
+    # SystemInformation.request_root_permission()
     os.system(f"sudo mv temp/gradle-{gradle} {_GRADLE_PATH}")
 
     Printing.title('Agregar Gradle al Path de Linux')
@@ -84,6 +84,8 @@ def start():
 
     try:
         Printing.title(f'Se require su contraseña para aplicar el comando $ source {_GRADLE_PATH_LINUX}')
+        Printing.warning('En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente')
+        Printing.message(f'source {_GRADLE_PATH_LINUX}')
         os.system(f"su -c 'source {_GRADLE_PATH_LINUX}' root")
 
         Printing.title('Mostrar información de Gradle')

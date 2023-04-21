@@ -67,7 +67,7 @@ def start():
         uncompress.un_tarxz(f"temp/{basename}.tar.xz", TemporalFile.FOLDER_TEMP)
 
     Printing.title('Mover MySQL a /opt/')
-    SystemInformation.request_root_permission()
+    # SystemInformation.request_root_permission()
     os.system(f"sudo mv temp/{basename} {_MYSQL_PATH}")
 
     Printing.title('Agregar MySQL al Path de Linux')

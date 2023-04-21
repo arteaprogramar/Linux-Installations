@@ -30,27 +30,4 @@ class _SystemInformation:
         return self.arch
 
 
-def has_root_permission():
-    is_root = subprocess.check_output('echo "${EUID:-$(id -u)}"', shell=True, text=True)
-    return int(is_root) == 0
-
-
-def request_root_permission():
-    if not has_root_permission():
-        Printing.title("El script requiere permisos administrativos")
-        # args = ['sudo', sys.executable] + sys.argv + [os.environ]
-        # os.execlpe('sudo', *args)
-        os.system('sudo uname -m')
-        # subprocess.call(['sudo', 'cat', '/etc/os-release', '&>/dev/null'])
-
-
-def permission_continue():
-    print(has_root_permission())
-
-    if has_root_permission():
-        Printing.title('Se requieren permisos administrativos')
-        TemporalFile.folder_delete(TemporalFile.FOLDER_TEMP)
-        exit()
-
-
 getInformation = _SystemInformation()

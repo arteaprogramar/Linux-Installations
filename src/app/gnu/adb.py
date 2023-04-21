@@ -47,7 +47,7 @@ def start():
     uncompress.unzip(f'{TemporalFile.FOLDER_TEMP}/{_ADB_VERSION}', TemporalFile.FOLDER_TEMP)
 
     Printing.title('Mover ADB a /opt/')
-    SystemInformation.request_root_permission()
+    # SystemInformation.request_root_permission()
     os.system(f'sudo mv temp/platform-tools {_ADB_PATH}')
 
     Printing.title('Agregar adb al Path de Linux')
@@ -58,6 +58,8 @@ def start():
 
     try:
         Printing.title(f'Se require su contraseña para aplicar el comando $ source {_ADB_PATH_LINUX}')
+        Printing.warning('En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente')
+        Printing.message(f'source {_ADB_PATH_LINUX}')
         os.system(f"su -c 'source {_ADB_PATH_LINUX}' root")
 
         Printing.title('Mostrar información del adb')

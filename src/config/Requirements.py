@@ -7,7 +7,7 @@ def install_python_pip():
     if PackageManager.pkg_exists(_PYTHON_PIP):
         return
 
-    SystemInformation.request_root_permission()
+    # SystemInformation.request_root_permission()
     manager = PackageManager.get_pm()
 
     if manager == PackageManager.DNF_MANAGER:

@@ -2,8 +2,8 @@
 
 import json
 
-import run
-from src.config import SystemInformation, PackageManager, Printing
+from src import run
+from src.config import SystemInformation, PackageManager, Printing, RequestPermission
 
 
 def parser_int(value: str):
@@ -19,13 +19,15 @@ def start():
     pkgs = []
     manager = PackageManager.get_pm()
 
-    Printing.message('-----------------------------------------------------------')
     Printing.message(f'Sistema Operativo : {SystemInformation.getInformation.get_name_system()}')
     Printing.message(f'Versión del Sistema : {SystemInformation.getInformation.get_id_system()}')
     Printing.message(f'Versión del Kernel : {SystemInformation.getInformation.get_kernel_version()}')
     Printing.message(f'Gestor de Paquetes : {manager}')
     Printing.message('-----------------------------------------------------------')
     Printing.message('\n')
+
+    Printing.title('Solicitar permisos administrativos')
+    RequestPermission.request_permission()
 
     apps = open('src/apps.json')
 
