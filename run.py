@@ -1,5 +1,5 @@
 from src.app.gnu import adb, flutter, gradle
-from src.app.pacman import java
+from src.app.pacman import java, mysql
 
 
 def gnu_adb(manager: str):
@@ -17,3 +17,6 @@ def gnu_gradle(manager: str):
 def pacman_java(manager: str):
     java.init(manager)
 
+
+def pacman_mysql(manager: str):
+    mysql.init(manager)

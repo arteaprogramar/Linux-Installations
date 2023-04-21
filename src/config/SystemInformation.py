@@ -2,12 +2,13 @@ import os
 import platform
 import subprocess
 
-from src.config import Printing
+from src.config import Printing, TemporalFile
 
 
 class _SystemInformation:
     current_user_id = os.geteuid()
     kernel_version = platform.uname().release
+    arch = platform.uname().machine
     object: dict = platform.freedesktop_os_release()
 
     def get_name_system(self):
@@ -25,9 +26,13 @@ class _SystemInformation:
     def require_permission(self):
         return self.current_user_id == 0
 
+    def get_arch(self):
+        return self.arch
+
 
 def has_root_permission():
-    return os.geteuid() == 0
+    is_root = subprocess.check_output('echo "${EUID:-$(id -u)}"', shell=True, text=True)
+    return int(is_root) == 0
 
 
 def request_root_permission():
@@ -35,9 +40,17 @@ def request_root_permission():
         Printing.title("El script requiere permisos administrativos")
         # args = ['sudo', sys.executable] + sys.argv + [os.environ]
         # os.execlpe('sudo', *args)
-        subprocess.call(['sudo', 'sudo', '--version', '&>/dev/null'])
+        os.system('sudo uname -m')
+        # subprocess.call(['sudo', 'cat', '/etc/os-release', '&>/dev/null'])
 
-    return has_root_permission()
+
+def permission_continue():
+    print(has_root_permission())
+
+    if has_root_permission():
+        Printing.title('Se requieren permisos administrativos')
+        TemporalFile.folder_delete(TemporalFile.FOLDER_TEMP)
+        exit()
 
 
 getInformation = _SystemInformation()

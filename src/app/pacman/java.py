@@ -7,7 +7,7 @@ from src.config import Printing
 _TITLE = 'Instalación de Java (JRE - JDK)'
 
 
-def init(pkg: str):
+def init(manager: str):
     Printing.welcome(_TITLE)
     Printing.message('')
 

@@ -18,5 +18,10 @@
         "name" : "Java",
         "manager": "pacman",
         "pkg": "java"
+    },
+    {
+        "name" : "MySQL",
+        "manager": "pacman",
+        "pkg": "mysql"
     }
 ]

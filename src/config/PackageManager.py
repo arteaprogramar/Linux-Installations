@@ -33,7 +33,7 @@ def pacman_install(pkg: str):
 
 
 def yay_install(pkg: str):
-    os.system(f'sudo yay -S {pkg} --noconfirm')
+    os.system(f'yay -S {pkg} --noconfirm')
 
 
 def try_install(manager: str, pkg: str):
