@@ -23,5 +23,10 @@
         "name" : "MySQL",
         "manager": "pacman",
         "pkg": "mysql"
+    },
+    {
+        "name" : "Media Transfer Protocol",
+        "manager": "pacman",
+        "pkg": "mtp"
     }
 ]
