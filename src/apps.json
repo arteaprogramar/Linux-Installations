@@ -28,5 +28,10 @@
         "name" : "Media Transfer Protocol",
         "manager": "pacman",
         "pkg": "mtp"
+    },
+    {
+        "name" : "Google Chrome & Microsoft Edge",
+        "manager": "pacman",
+        "pkg": "browser"
     }
 ]
