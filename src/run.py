@@ -1,5 +1,5 @@
 from src.app.gnu import adb, flutter, gradle
-from src.app.pacman import java, mysql, mtp, browser
+from src.app.pacman import java, mysql, mtp, browser, php
 
 
 def gnu_adb(manager: str):
@@ -28,4 +28,8 @@ def pacman_mtp(manager: str):
 
 def pacman_browser(manager: str):
     browser.init(manager)
+
+
+def pacman_php(manager: str):
+    php.init(manager)
 

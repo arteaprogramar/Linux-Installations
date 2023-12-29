@@ -33,5 +33,10 @@
         "name" : "Google Chrome & Microsoft Edge",
         "manager": "pacman",
         "pkg": "browser"
+    },
+    {
+        "name" : "PHP 8.x",
+        "manager": "pacman",
+        "pkg": "php"
     }
 ]
