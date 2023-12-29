@@ -61,7 +61,7 @@ def init(manager: str):
     os.system(f"sudo sed -i 's,LoadModule mpm_event_module modules\/mod_mpm_event.so,# LoadModule mpm_event_module modules/mod_mpm_event.so,' /etc/httpd/conf/httpd.conf")
 
     Printing.title(f'Cargar módulos de PHP a Apache Server')
-    os.system(f'sudo echo -e {php7_config} >> /etc/httpd/conf/httpd.conf')
+    os.system(f'sudo echo -e "{php7_config}" >> /etc/httpd/conf/httpd.conf')
     os.system(f"sudo sed -i 's/php7_module/php_module/' /etc/httpd/conf/httpd.conf")
     os.system(f"sudo sed -i 's/libphp7/libphp/' /etc/httpd/conf/httpd.conf")
     os.system(f"sudo sed -i 's/php7-script/php-script/' /etc/httpd/conf/httpd.conf")
