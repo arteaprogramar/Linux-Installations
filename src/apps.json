@@ -38,5 +38,10 @@
         "name" : "PHP 8.x",
         "manager": "pacman",
         "pkg": "php"
+    },
+    {
+        "name" : "PHP 8.x",
+        "manager": "apt",
+        "pkg": "php"
     }
 ]
