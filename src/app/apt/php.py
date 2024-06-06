@@ -54,8 +54,8 @@ def init(manager: str):
     os.system(f'sudo systemctl enable apache2')
 
     Printing.title('Cambiar permisos de /srv/http y abrir navegador para ver información de php')
-    os.system(f'sudo chmod 777 /srv/http/')
-    os.system(f'echo "<?php phpinfo(); ?>" > /srv/http/index.php ')
+    os.system(f'sudo chmod 777 /var/www/')
+    os.system(f'echo "<?php phpinfo(); ?>" > /var/www/index.php ')
     os.system(f'php --version')
     os.system(f'xdg-open http://127.0.0.1')
 
