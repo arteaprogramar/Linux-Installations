@@ -36,8 +36,8 @@ def init(manager: str):
     os.system('sudo apt -y install php8.3')
 
     Printing.title('Instalación de extensiones de PHP')
-    os.system(f'sudo apt -y install php8.3-cgi php8.3-enchant php8.3-fpm php8.3-gd php8.3-imap php8.2-intl '
-              f'php8.3-odbc php8.3-pgsql php8.3-phpdbg php8.2-pspell php8.3-snmp  php8.3-sqlite3  '
+    os.system(f'sudo apt -y install php8.3-cgi php8.3-enchant php8.3-fpm php8.3-gd php8.3-imap php8.3-intl '
+              f'php8.3-odbc php8.3-pgsql php8.3-phpdbg php8.3-pspell php8.3-snmp  php8.3-sqlite3  '
               f'php8.3-tidy php8.3-xsl php8.3-memcache php8.3-zip php8.3-curl')
 
     Printing.title('Instalacion de PHP Composer')
