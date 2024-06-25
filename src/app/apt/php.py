@@ -15,7 +15,7 @@ def init(manager: str):
 
     if is_debian():
         os.system(f'sudo apt install lsb-release apt-transport-https ca-certificates  wget -y')
-        os.system(f'wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg')
+        os.system(f'sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg')
         os.system(f"sudo sh -c 'echo \"deb https://packages.sury.org/php/ bookworm main\" > /etc/apt/sources.list.d/php.list '")
 
     if not is_debian():
