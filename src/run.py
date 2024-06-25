@@ -1,5 +1,5 @@
 from src.app.gnu import adb, flutter, gradle
-from src.app.apt import php as php_apt
+from src.app.apt import php as php_apt, node as node_apt
 from src.app.pacman import java, mysql, mtp, browser, php
 
 
@@ -37,3 +37,7 @@ def pacman_php(manager: str):
 
 def apt_php(manager: str):
     php_apt.init(manager)
+
+
+def apt_node(manager: str):
+    node_apt.init(manager)
