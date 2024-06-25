@@ -22,7 +22,7 @@ def init(manager: str):
         os.system(f'sudo add-apt-repository ppa:ondrej/php')
 
     Printing.title('Instalación de Apache Server')
-    os.system('sudo apt -y install apache2 curl libapache2-mod-php libapache2-mod-php8.3')
+    os.system('sudo apt -y install apache2 curl')
 
     Printing.title('Comenzar el servicio de apache')
     os.system(f'sudo systemctl restart apache2')
@@ -39,6 +39,8 @@ def init(manager: str):
     os.system(f'sudo apt -y install php8.3-cgi php8.3-enchant php8.3-fpm php8.3-gd php8.3-imap php8.3-intl '
               f'php8.3-odbc php8.3-pgsql php8.3-phpdbg php8.3-pspell php8.3-snmp  php8.3-sqlite3  '
               f'php8.3-tidy php8.3-xsl php8.3-memcache php8.3-zip php8.3-curl')
+
+    os.system(f'sudo apt install -y libapache2-mod-php libapache2-mod-php8.3')
 
     Printing.title('Instalacion de PHP Composer')
     os.system('curl -sS https://getcomposer.org/installer -o composer-setup.php')
