@@ -63,10 +63,14 @@ def init(manager: str):
 def is_debian():
     try:
         if os.path.exists("/etc/os-release"):
-        with open("/etc/os-release") as f:
-            for line in f:
-                if line.startswith("ID="):
-                    distribution_id = line.strip().split("=")[1].strip('"')
-                    return distribution_id == "debian"
-    except Exception as e:
+            with open("/etc/os-release") as f:
+                for line in f:
+                    if line.startswith("ID="):
+                        distribution_id = line.strip().split("=")[1].strip('"')
+                        return distribution_id == "debian"
         return False
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
+
