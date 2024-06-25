@@ -4,7 +4,7 @@ import platform
 from src.config import Printing
 
 _TITLE = 'Instalación de Apache Server y PHP 8.x'
-_SURY_REPOSITORY = 'deb https://packages.sury.org/php/ $(lsb_release -sc) main'
+_SURY_REPOSITORY = 'deb https://packages.sury.org/php/ bookworm main'
 
 
 def init(manager: str):
@@ -16,7 +16,8 @@ def init(manager: str):
     if is_debian():
         os.system(f'sudo apt install apt-transport-https lsb-release ca-certificates wget -y')
         os.system(f'sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg')
-        os.system(f"sudo sh -c 'echo {_SURY_REPOSITORY} > /etc/apt/sources.list.d/php.list '")
+        #os.system(f"sudo sh -c 'echo {_SURY_REPOSITORY} > /etc/apt/sources.list.d/php.list '")
+        os.system(f"sudo sh -c \"echo '{_SURY_REPOSITORY}' > /etc/apt/sources.list.d/php.list\"")
 
     if not is_debian():
         os.system(f'sudo add-apt-repository ppa:ondrej/php')
