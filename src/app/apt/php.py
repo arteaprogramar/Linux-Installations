@@ -64,6 +64,7 @@ def is_debian():
     try:
         distro = platform.linux_distribution()
         name = distro[0].lower()
+        Printing.message(name)
 
         if 'ubuntu' in name:
             return False
