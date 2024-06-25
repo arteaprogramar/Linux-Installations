@@ -1,4 +1,4 @@
-from src.app.gnu import adb, flutter, gradle
+from src.app.gnu import adb, flutter, gradle, dotnet
 from src.app.apt import php as php_apt, node as node_apt
 from src.app.pacman import java, mysql, mtp, browser, php
 
@@ -41,3 +41,7 @@ def apt_php(manager: str):
 
 def apt_node(manager: str):
     node_apt.init(manager)
+
+
+def gnu_dotnet(manager: str):
+    dotnet.init(manager)
