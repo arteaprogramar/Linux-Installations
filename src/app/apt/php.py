@@ -62,15 +62,11 @@ def init(manager: str):
 
 def is_debian():
     try:
-        distro = platform.linux_distribution()
-        name = distro[0].lower()
-        Printing.message(name)
-
-        if 'ubuntu' in name:
-            return False
-        elif 'debian' in name:
-            return True
-        else:
-            return False
+        if os.path.exists("/etc/os-release"):
+        with open("/etc/os-release") as f:
+            for line in f:
+                if line.startswith("ID="):
+                    distribution_id = line.strip().split("=")[1].strip('"')
+                    return distribution_id == "debian"
     except Exception as e:
         return False
