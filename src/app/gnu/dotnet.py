@@ -1,9 +1,6 @@
-import json
 import os
 
-import main
-from src.app.common import wget_util, uncompress
-from src.config import PackageManager, TemporalFile, SystemInformation, Printing
+from src.config import TemporalFile, Printing
 
 _TITLE = 'Instalación de Gradle'
 
@@ -49,4 +46,3 @@ def init(manager: str):
     except OSError:
         Printing.warning('Deberá ejecutar el siguiente comando para agregar .NET al PATH de Linux')
         Printing.message(f'source {_DOTNET_PATH_LINUX}')
-
