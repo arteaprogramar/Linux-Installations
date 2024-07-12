@@ -39,7 +39,7 @@
         "manager": "pacman",
         "pkg": "php"
     },
-    {
+    {   
         "name" : "PHP 8.3",
         "manager": "apt",
         "pkg": "php"
@@ -53,5 +53,10 @@
         "name" : ".NET 6 (SDK - Runtime)",
         "manager": "gnu",
         "pkg": "dotnet"
+    },
+    {
+        "name" : "Apache Server & PHP 8.x",
+        "manager": "dnf",
+        "pkg": "php"
     }
 ]

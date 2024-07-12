@@ -23,7 +23,7 @@ def init(manager: str):
     if not is_debian():
         os.system(f'sudo add-apt-repository ppa:ondrej/php')
 
-    Printing.title('Actualizar reposotorios')
+    Printing.title('Actualizar repositorios')
     os.system('sudo apt update')
 
     Printing.title('Instalación de Apache Server')
