@@ -42,9 +42,9 @@ def init(manager: str):
     os.system(f'sudo dnf -y install composer')
 
     Printing.title('Reiniciar el servico de apache')
-    os.system(f'sudo systemctl restart apache2')
-    os.system(f'sudo systemctl start apache2')
-    os.system(f'sudo systemctl enable apache2')
+    os.system(f'sudo systemctl restart httpd')
+    os.system(f'sudo systemctl start httpd')
+    os.system(f'sudo systemctl enable httpd')
 
     Printing.title('Cambiar permisos de /srv/http y abrir navegador para ver información de php')
     os.system(f'sudo chmod 777 /var/www/')
