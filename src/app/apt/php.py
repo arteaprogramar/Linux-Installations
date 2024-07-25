@@ -58,7 +58,7 @@ def init(manager: str):
                 continue_menu = False
 
         Printing.title('Instalacion de PHP')
-        php_version = f'php{selected}'
+        php_version = f'php{versions[selected]}'
         os.system(f'sudo apt -y install {php_version}')
 
         Printing.title('Instalación de extensiones de PHP')
