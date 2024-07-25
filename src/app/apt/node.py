@@ -13,7 +13,7 @@ def init(manager: str):
     Printing.title('Actualizar Sistema', True)
 
     Printing.title('Instalación de NodeJS')
-    os.system(f'sudo curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh')
+    os.system(f'sudo curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/nodesource_setup.sh')
     os.system(f'sudo bash /tmp/nodesource_setup.sh')
     os.system(f'sudo apt install -y nodejs')
     os.system(f'node --version')
