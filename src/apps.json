@@ -58,5 +58,10 @@
         "name" : "Apache Server & PHP 8.x",
         "manager": "dnf",
         "pkg": "php"
+    },
+    {   
+        "name" : "OpenJDK",
+        "manager": "apt",
+        "pkg": "java"
     }
 ]

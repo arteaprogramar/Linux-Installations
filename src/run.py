@@ -1,5 +1,5 @@
 from src.app.gnu import adb, flutter, gradle, dotnet
-from src.app.apt import php as php_apt, node as node_apt
+from src.app.apt import php as php_apt, node as node_apt, java as java_apt
 from src.app.pacman import java, mysql, mtp, browser, php
 from src.app.dnf import php as php_dnf
 
@@ -50,3 +50,8 @@ def gnu_dotnet(manager: str):
 
 def dnf_php(manager: str):
     php_dnf.init(manager)
+
+
+def apt_java(manager: str):
+    java_apt.init(manager)
+    
