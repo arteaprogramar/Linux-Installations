@@ -9,7 +9,30 @@
             "param" : null
         },
         "warning" : "Si el paquete CURL no existe en su SO favor de descargarlo"
-    },{
+    },
+    {
+        "action" : "Comprobar si existe el paquete WGET",
+        "command" : "wget --version",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--pkg-exists",
+            "param" : null
+        },
+        "warning" : "Si el paquete WGET no existe en su SO favor de descargarlo"
+    },
+    {
+        "action" : "Comprobar si existe el paquete UNZIP",
+        "command" : "unzip --version",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--pkg-exists",
+            "param" : null
+        },
+        "warning" : "Si el paquete UNZIP no existe en su sistema favor de instalarlo"
+    },
+    {
         "action" : "Comprobar si existe el paquete Java",
         "command" : "java -version",
         "command_alternative" : null,

@@ -13,5 +13,10 @@
         "name" : "Instalación de Gradle",
         "manager" : ["gnu"],
         "actions" : "pkg/gradle.json"
+    },
+    {
+        "name" : "Instalación de Postman x64",
+        "manager" : ["gnu"],
+        "actions" : "pkg/postman.json"
     }
 ]
