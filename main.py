@@ -1,9 +1,10 @@
 #!/bin/python
 
 import json
+import os
 
-from src import run
-from src.config import SystemInformation, PackageManager, Printing, RequestPermission
+from src.util import Printing, Download, PackageManager
+from src import PackageInstall, Menu
 
 
 def parser_int(value: str):
@@ -14,47 +15,16 @@ def parser_int(value: str):
 
 
 def start():
-    Printing.welcome()
+    pkg_manager = PackageManager.get_package_manager()
 
-    pkgs = []
-    manager = PackageManager.get_pm()
+    Printing.title("Arte a Programar : v3.0")
+    Printing.subtitle(f'Gestor de Paquetes : {pkg_manager}', False)
+    Printing.subtitle(f'Arquitectura : {os.uname().machine}')
 
-    Printing.message(f'Sistema Operativo : {SystemInformation.getInformation.get_name_system()}')
-    Printing.message(f'Versión del Sistema : {SystemInformation.getInformation.get_id_system()}')
-    Printing.message(f'Versión del Kernel : {SystemInformation.getInformation.get_kernel_version()}')
-    Printing.message(f'Gestor de Paquetes : {manager}')
-    Printing.message('-----------------------------------------------------------')
-    Printing.message('\n')
+    packages = json.load(open('pkgs.json'))
+    option = Menu.show('Lista de paquetes disponibles para instalar', packages)
 
-    Printing.title('Solicitar permisos administrativos')
-    RequestPermission.request_permission()
-
-    apps = open('src/apps.json')
-
-    for pkg in json.load(apps):
-        if pkg['manager'] == 'gnu' or pkg['manager'] == manager:
-            pkgs.append(pkg)
-
-    show_menu(manager, pkgs)
-
-
-def show_menu(manager: str, lists):
-    Printing.title('Lista de paquetes disponibles para instalar', False)
-
-    for index, pkg in enumerate(lists):
-        print(f"[{index}] {pkg['name']}")
-
-    continue_menu = True
-    selected = -1
-
-    while continue_menu:
-        selected = parser_int(input('Ingrese un número: '))
-
-        if selected < len(lists):
-            continue_menu = False
-
-    running = getattr(run, f"{lists[selected]['manager']}_{lists[selected]['pkg']}")
-    running(manager)
+    PackageInstall.init(option, pkg_manager)
 
 
 if __name__ == '__main__':

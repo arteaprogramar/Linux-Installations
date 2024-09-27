@@ -1,0 +1,7 @@
+[
+    {
+        "name" : "Instalación de Java",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/java.json"
+    }
+]

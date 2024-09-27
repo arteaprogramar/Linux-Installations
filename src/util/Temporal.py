@@ -3,7 +3,6 @@ import shutil
 
 FOLDER_TEMP = 'temp'
 
-
 def folder_exists(path: str):
     return os.path.exists(path)
 
@@ -12,7 +11,6 @@ def temp_folder_create():
     try:
         if not folder_exists(FOLDER_TEMP):
             os.makedirs(FOLDER_TEMP)
-            # os.chmod(FOLDER_TEMP, 0o777)
 
         return folder_exists(FOLDER_TEMP)
     except OSError:
