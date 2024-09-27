@@ -53,5 +53,45 @@
             "param" : "https://services.gradle.org/distributions/gradle-{version}-all.zip"
         },
         "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "unzip temp/gradle-{version}-all.zip -d temp",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a OPT",
+        "command" : "sudo mv temp/gradle-{version} /opt/Gradle",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agregar al PATH de Linux y dar permisos de ejecución a Gradle",
+        "command" : "sudo cp files/path-gradle.sh /etc/profile.d/gradle.sh; sudo chmod +x /etc/profile.d/gradle.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Se require su contraseña para aplicar el comando '$ source /etc/profile.d/gradle.sh'",
+        "command" : "su -c 'source /etc/profile.d/gradle.sh' root",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente $ source /etc/profile.d/gradle.sh"
+    },
+    {
+        "action" : "En algunas distribuciones requiere reiniciar el sistema",
+        "command" : "/opt/Gradle/bin/gradle --version",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
     }
 ]

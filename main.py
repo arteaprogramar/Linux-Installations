@@ -15,8 +15,10 @@ def parser_int(value: str):
 
 
 def start():
-    Temporal.temp_folder_create()
+    Temporal.folder_delete(Temporal.FOLDER_TEMP)
+
     pkg_manager = PackageManager.get_package_manager()
+    Temporal.temp_folder_create()
 
     Printing.title("Arte a Programar : v3.0")
     Printing.subtitle(f'Gestor de Paquetes : {pkg_manager}', False)
