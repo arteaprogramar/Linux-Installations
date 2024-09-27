@@ -3,7 +3,7 @@
 import json
 import os
 
-from src.util import Printing, Download, PackageManager
+from src.util import Printing, Temporal, PackageManager
 from src import PackageInstall, Menu
 
 
@@ -22,10 +22,10 @@ def start():
     Printing.subtitle(f'Arquitectura : {os.uname().machine}')
 
     packages = json.load(open('pkgs.json'))
-    option = Menu.show('Lista de paquetes disponibles para instalar', packages)
+    filtered = [item for item in packages if pkg_manager in item["manager"] or "gnu" in item["manager"]]
+    option = Menu.show('Lista de paquetes disponibles para instalar', filtered)
 
     PackageInstall.init(option, pkg_manager)
-
 
 if __name__ == '__main__':
     start()

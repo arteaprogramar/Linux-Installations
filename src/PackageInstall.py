@@ -1,6 +1,6 @@
 import json
 from src import Menu
-from src.util import Printing, Command
+from src.util import Printing, Command, Download, Temporal
 
 
 def apply(instructions, manager: str):
@@ -9,23 +9,42 @@ def apply(instructions, manager: str):
     for instruction in instructions:
         Printing.title(instruction['action'], False)
 
-        command = ''
+        output = None
+        command = None
         captured_output = instruction['required_output']
-        require_menu = instruction['menu']
+        extra = instruction['extra']
+        warning = instruction['warning']
 
+        # Mostrar mensaje de advertencia
+        if warning is not None:
+            Printing.warning(warning, True)
+
+        # Comando
         if instruction['command'] is not None and instruction['command_alternative'] is None:
             command = instruction['command']
 
+        # Comando alternativo
         if instruction['command'] is None and instruction['command_alternative'] is not None:
             command = instruction['command_alternative'][manager]
 
+            # Si se trata de un comando para manipular versiones
             if "{version}" in command:
                 command = command.format(version=version)
 
-        output = Command.execute(command, captured_output)
+        # Ejecutar el comando cuando sea necesario
+        if command is not None:
+            output = Command.execute(command, captured_output)
 
-        if require_menu is not None:
-            version = Menu.show(require_menu['name'], output)
+        # Acciones extras
+        if extra is not None:
+            if extra['name'] == '--download':
+                Download.for_wget(extra['param'])
+            elif extra['name'] == '--pkg-exists':
+                if not isinstance(output, list):
+                    Printing.warning("Se requiere una dependencia que no existe en su Sistema")
+                    exit()
+            else:
+                version = Menu.show(extra['name'], output)
 
         print()
 
@@ -35,3 +54,4 @@ def init(pkg, manager: str):
 
     process = json.load(open(pkg['actions']))
     apply(process, manager)
+    Temporal.folder_delete(Temporal.FOLDER_TEMP)

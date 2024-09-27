@@ -1,0 +1,84 @@
+[
+    {
+        "action" : "Comprobar si existe el paquete CURL",
+        "command" : "curl --version",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--pkg-exists",
+            "param" : null
+        },
+        "warning" : "Si el paquete CURL no existe en su SO favor de descargarlo"
+    },
+    {
+        "action" : "Actualizar sistema",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "sudo dnf -y upgrade",
+            "apt" : "sudo apt update; sudo apt -y upgrade",
+            "pacman" : "sudo pacman -Syu --noconfirm"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Descargar ADB",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "unzip temp/platform-tools-latest-linux.zip -d temp",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a OPT",
+        "command" : "sudo mv temp/platform-tools /opt/platform-tools",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agrega al PATH de Linux el ADB",
+        "command" : "sudo cp files/path-adb.sh /etc/profile.d/adb.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agregar permiso de ejecución al adb en el path de Linux",
+        "command" : "sudo chmod +x /etc/profile.d/adb.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Se require su contraseña para aplicar el comando $ source /etc/profile.d/adb.sh",
+        "command" : "su -c 'source /etc/profile.d/adb.sh' root",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente $ source /etc/profile.d/adb.sh"
+    },
+    {
+        "action" : "En algunas distribuciones requiere reiniciar el sistema",
+        "command" : "/opt/platform-tools/adb --version",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]

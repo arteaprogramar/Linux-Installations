@@ -3,7 +3,7 @@ import subprocess
 from src.util import Printing
 
 
-def execute(args: str, capture_output: bool, hidden_log : bool = False):
+def execute(args: str, capture_output: bool = False, hidden_log : bool = False):
     """
     Este metodo nos permitira executar un comando en unix mediante python y obtener el resultado
     de la ejecución de ese comando

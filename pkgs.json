@@ -1,5 +1,10 @@
 [
     {
+        "name" : "Instalación de ADB",
+        "manager" : ["gnu"],
+        "actions" : "pkg/adb.json"
+    },
+    {
         "name" : "Instalación de Java",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/java.json"
