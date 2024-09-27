@@ -8,5 +8,10 @@
         "name" : "Instalación de Java",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/java.json"
+    },
+    {
+        "name" : "Instalación de Gradle",
+        "manager" : ["gnu"],
+        "actions" : "pkg/gradle.json"
     }
 ]

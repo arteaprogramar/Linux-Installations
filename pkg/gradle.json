@@ -1,0 +1,57 @@
+[
+    {
+        "action" : "Comprobar si existe el paquete CURL",
+        "command" : "curl --version",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--pkg-exists",
+            "param" : null
+        },
+        "warning" : "Si el paquete CURL no existe en su SO favor de descargarlo"
+    },{
+        "action" : "Comprobar si existe el paquete Java",
+        "command" : "java -version",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--pkg-exists",
+            "param" : null
+        },
+        "warning" : "Se requiere JAVA para instalar Gradle"
+    },
+    {
+        "action" : "Actualizar sistema",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "sudo dnf -y upgrade",
+            "apt" : "sudo apt update; sudo apt -y upgrade",
+            "pacman" : "sudo pacman -Syu --noconfirm"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Obtener versiones disponibles de Gradle",
+        "command" : "  versions=($(curl -s https://raw.githubusercontent.com/gradle/gradle/master/released-versions.json | grep -oP '\"version\":\\s*\"\\K[0-9.]+' | head -n 20));   printf '%s\\n' \"${versions[@]}\"  ",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "Lista de versiones disponibles",
+            "param" : null
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descarga de Gradle",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://services.gradle.org/distributions/gradle-{version}-all.zip"
+        },
+        "warning" : null
+    }
+]

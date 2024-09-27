@@ -15,6 +15,7 @@ def parser_int(value: str):
 
 
 def start():
+    Temporal.temp_folder_create()
     pkg_manager = PackageManager.get_package_manager()
 
     Printing.title("Arte a Programar : v3.0")

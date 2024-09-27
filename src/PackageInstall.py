@@ -38,11 +38,18 @@ def apply(instructions, manager: str):
         # Acciones extras
         if extra is not None:
             if extra['name'] == '--download':
-                Download.for_wget(extra['param'])
+
+                if "{version}" in extra['param']:
+                    Download.for_wget(extra['param'].format(version=version))
+                else:
+                    Download.for_wget(extra['param'])
+
             elif extra['name'] == '--pkg-exists':
+
                 if not isinstance(output, list):
                     Printing.warning("Se requiere una dependencia que no existe en su Sistema")
                     exit()
+
             else:
                 version = Menu.show(extra['name'], output)
 
@@ -54,4 +61,4 @@ def init(pkg, manager: str):
 
     process = json.load(open(pkg['actions']))
     apply(process, manager)
-    Temporal.folder_delete(Temporal.FOLDER_TEMP)
+    # Temporal.folder_delete(Temporal.FOLDER_TEMP)
