@@ -44,18 +44,6 @@
         "warning" : "Se requiere JAVA para instalar Gradle"
     },
     {
-        "action" : "Actualizar sistema",
-        "command" : null,
-        "command_alternative" : {
-            "dnf" : "sudo dnf -y upgrade",
-            "apt" : "sudo apt update; sudo apt -y upgrade",
-            "pacman" : "sudo pacman -Syu --noconfirm"
-        },
-        "required_output" : false,
-        "extra" : null,
-        "warning" : null
-    },
-    {
         "action" : "Obtener versiones disponibles de Gradle",
         "command" : "  versions=($(curl -s https://raw.githubusercontent.com/gradle/gradle/master/released-versions.json | grep -oP '\"version\":\\s*\"\\K[0-9.]+' | head -n 20));   printf '%s\\n' \"${versions[@]}\"  ",
         "command_alternative" : null,

@@ -22,18 +22,6 @@
         "warning" : "Si el paquete WGET no existe en su SO favor de descargarlo"
     },
     {
-        "action" : "Actualizar sistema",
-        "command" : null,
-        "command_alternative" : {
-            "dnf" : "sudo dnf -y upgrade",
-            "apt" : "sudo apt update; sudo apt -y upgrade",
-            "pacman" : "sudo pacman -Syu --noconfirm"
-        },
-        "required_output" : false,
-        "extra" : null,
-        "warning" : null
-    },
-    {
         "action" : "Descargar ADB",
         "command" : null,
         "command_alternative" : null,
@@ -61,16 +49,8 @@
         "warning" : null
     },
     {
-        "action" : "Agrega al PATH de Linux el ADB",
-        "command" : "sudo cp files/path-adb.sh /etc/profile.d/adb.sh",
-        "command_alternative" : null,
-        "required_output" : false,
-        "extra" : null,
-        "warning" : null
-    },
-    {
-        "action" : "Agregar permiso de ejecución al adb en el path de Linux",
-        "command" : "sudo chmod +x /etc/profile.d/adb.sh",
+        "action" : "Agrega al PATH de Linux el ADB y darle permisos de ejecución",
+        "command" : "sudo cp files/path-adb.sh /etc/profile.d/adb.sh; sudo chmod +x /etc/profile.d/adb.sh",
         "command_alternative" : null,
         "required_output" : false,
         "extra" : null,

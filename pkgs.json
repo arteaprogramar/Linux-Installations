@@ -23,5 +23,10 @@
         "name" : "Instalación de PHP",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/php.json"
+    },
+    {
+        "name" : "Instalación de NodeJS",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/node.json"
     }
 ]

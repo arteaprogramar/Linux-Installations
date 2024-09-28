@@ -22,18 +22,6 @@
         "warning" : "Si el paquete WGET no existe en su SO favor de descargarlo"
     },
     {
-        "action" : "Actualizar sistema",
-        "command" : null,
-        "command_alternative" : {
-            "dnf" : "sudo dnf -y upgrade",
-            "apt" : "sudo apt update; sudo apt -y upgrade",
-            "pacman" : "sudo pacman -Syu --noconfirm"
-        },
-        "required_output" : false,
-        "extra" : null,
-        "warning" : null
-    },
-    {
         "action" : "Descargar Postman x64",
         "command" : null,
         "command_alternative" : null,
