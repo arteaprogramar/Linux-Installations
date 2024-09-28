@@ -1,0 +1,13 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes :",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["wget --version", "curl --version"]
+        },
+        "warning" : null
+    }
+]

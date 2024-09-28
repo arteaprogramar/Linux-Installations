@@ -2,7 +2,6 @@ import subprocess
 
 from src.util import Printing
 
-
 def execute(args: str, capture_output: bool = False, hidden_log : bool = False):
     """
     Este metodo nos permitira executar un comando en unix mediante python y obtener el resultado
@@ -50,3 +49,12 @@ def execute(args: str, capture_output: bool = False, hidden_log : bool = False):
         if not hidden_log:
             print(f"Se ha producido un error : ${exception}")
         return False
+
+
+def require_all_execute(commands: list):
+    for cmd in commands:
+        result = execute(cmd, True, True)
+
+        if not isinstance(result, list):
+            Printing.warning(f"Ocurrido un error al ejecutar {cmd} verifique si el paquete/comando esta instalado o puede ser llamado en su sistema")
+            exit()

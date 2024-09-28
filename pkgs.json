@@ -28,5 +28,15 @@
         "name" : "Instalación de NodeJS",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/node.json"
+    },
+    {
+        "name" : "Instalación de Media Transfer Protocol",
+        "manager" : ["pacman"],
+        "actions" : "pkg/mtp.json"
+    },
+    {
+        "name" : "Instalación de Flutter",
+        "manager" : ["gnu"],
+        "actions" : "pkg/flutter.json"
     }
 ]

@@ -60,6 +60,16 @@ def apply(instructions, manager: str):
                     Printing.warning("Se requiere una dependencia que no existe en su Sistema")
                     exit()
 
+            # Permite ejecutar multiples comandos y requiere que todos sean executados correctamente
+            elif extra['name'] == '--execute-all-commands':
+
+                if isinstance(extra['param'], list):
+                    Command.require_all_execute(extra['param'])
+                    Printing.warning("Se han executado todos los comandos con existo")
+                else:
+                    Printing.warning("Se requiere una lista de comandos")
+                    exit()
+
             # Muestra un un menu de opciones
             else:
                 version = Menu.show(extra['name'], output)

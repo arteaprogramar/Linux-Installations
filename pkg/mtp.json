@@ -1,0 +1,18 @@
+[
+    {
+        "action" : "Instalación de Media Transfer Protocol",
+        "command" : "sudo pacman -S mtpfs gvfs-mtp --noconfirm",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Nota: Se requiere reiniciar el sistema",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" :null
+    }
+]
