@@ -18,5 +18,10 @@
         "name" : "Instalación de Postman x64",
         "manager" : ["gnu"],
         "actions" : "pkg/postman.json"
+    },
+    {
+        "name" : "Instalación de PHP",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/php.json"
     }
 ]

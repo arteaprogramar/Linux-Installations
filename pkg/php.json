@@ -1,0 +1,109 @@
+[
+    {
+        "action" : "Actualizar sistema",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "sudo dnf -y upgrade",
+            "apt" : "sudo apt update; sudo apt -y upgrade",
+            "pacman" : "sudo pacman -Syu --noconfirm"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Apache Server",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "sudo dnf -y install httpd curl",
+            "apt" : "sudo apt -y install apache2 curl",
+            "pacman" : "sudo pacman -S apache curl --noconfirm"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agregar repositorio, esta acción solo es requerida en Ubuntu/Debian",
+        "command" : "bash files/php-repository.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Versiones disponibles de PHP",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   dnf search php | awk -v arch=$(uname -m) '$1 ~ \"^php\\\\.\" arch \":$\" {split($1, a, \".\"); print a[1]}'   ",
+            "apt" : "   apt-cache search php | egrep '^php[0-9]+.[0-9]+[[:space:]]+-[[:space:]]' | awk '{print $1}'   ",
+            "pacman" : "   pacman -Ss php | grep -E '/php[0-9]{0,2}[[:space:]]' | awk '{print $1}' | awk -F '/' '{print $2}'   "
+        },
+        "required_output" : true,
+        "extra" : {
+            "name" : "Lista de versiones disponibles de Java",
+            "param" : null
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de PHP y Módulos de Apache",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install {version} {version}-common   ",
+            "apt" : "   sudo apt -y install {version}   ",
+            "pacman" : "   sudo pacman -S {version} {version}-apache --noconfirm   "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Módulos de PHP",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install {version}-cgi {version}-enchant {version}-fpm {version}-gd {version}-intl {version}-odbc {version}-pgsql {version}-sqlite3 {version}-tidy {version}-xsl {version}-memcache {version}-zip {version}-curl    ",
+            "apt" : "   sudo apt -y install {version}-cgi {version}-enchant {version}-fpm {version}-gd {version}-imap {version}-intl {version}-odbc {version}-pgsql {version}-sqlite3 {version}-tidy {version}-xsl {version}-memcache {version}-zip {version}-curl   ",
+            "pacman" : "   sudo pacman -S {version}-apache {version}-cgi {version}-dblib {version}-embed {version}-enchant {version}-fpm {version}-gd {version}-imap {version}-intl {version}-odbc {version}-pgsql {version}-snmp {version}-sqlite {version}-tidy {version}-xsl {version}-memcache --noconfirm     "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Composer",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install composer   ",
+            "apt" : "   bash files/php-repository-composer.sh   ",
+            "pacman" : "   sudo pacman -S composer --noconfirm    "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Reiniciar servicios de apache",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo systemctl restart httpd; sudo systemctl status httpd    ",
+            "apt" : "   sudo systemctl restart apache2; sudo systemctl status apache2   ",
+            "pacman" : "   sudo systemctl restart httpd; sudo systemctl status httpd    "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Abrir el navegador para ver información de PHP",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo chmod 777 /var/www/; echo '<?php phpinfo(); ?>' > /var/www/index.php; xdg-open http://127.0.0.1   ",
+            "apt" : "   sudo chmod 777 /var/www/; echo '<?php phpinfo(); ?>' > /var/www/index.php; xdg-open http://127.0.0.1   ",
+            "pacman" : "   sudo chmod 777 /srv/http; echo '<?php phpinfo(); ?>' > /srv/http/index.php; xdg-open http://127.0.0.1    "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]
