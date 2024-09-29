@@ -1,13 +1,99 @@
 [
     {
-        "action" : "Comprobar si existe los paquetes :",
+        "action" : "Comprobar si existe los paquetes bash, curl, file, git, mkdir, rm, which, cmake, clang, unzip",
         "command" : null,
         "command_alternative" : null,
         "required_output" : true,
         "extra" : {
             "name" : "--execute-all-commands",
-            "param" : ["wget --version", "curl --version"]
+            "param" : ["bash --version", "curl --version", "file --version", "git --version", "mkdir --version", "rm --version", "which --version", "cmake --version", "clang --version", "unzip --version"]
         },
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de CoreUtils",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install coreutils   ",
+            "apt" : "   sudo apt -y install coreutils   ",
+            "pacman" : "   pacman -S coreutils --noconfirm   "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de XZ y Mesa",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install xz mesa-libGLU   ",
+            "apt" : "   sudo apt -y install xz-utils libglu1-mesa   ",
+            "pacman" : "   pacman -S xz glu --noconfirm   "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Obtener versiones disponibles de Flutter",
+        "command" : "  bash files/flutter-versions.sh  ",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "Lista de versiones disponibles",
+            "param" : null
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descarga de Flutter",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{version}-stable.tar.xz"
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "tar xf temp/flutter_linux_{version}-stable.tar.xz --directory temp",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a OPT",
+        "command" : "sudo mv temp/flutter /opt/Flutter",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agregar al PATH de Linux y dar permisos de ejecución a Flutter",
+        "command" : "sudo cp files/path-flutter.sh /etc/profile.d/flutter.sh; sudo chmod +x /etc/profile.d/flutter.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Se require su contraseña para aplicar el comando '$ source /etc/profile.d/flutter.sh'",
+        "command" : "su -c 'source /etc/profile.d/flutter.sh' root",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente $ source /etc/profile.d/flutter.sh"
+    },
+    {
+        "action" : "En algunas distribuciones requiere reiniciar el sistema",
+        "command" : "/opt/Flutter/bin/flutter doctor",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
         "warning" : null
     }
 ]

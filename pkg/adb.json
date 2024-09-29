@@ -1,25 +1,14 @@
 [
     {
-        "action" : "Comprobar si existe el paquete UNZIP",
-        "command" : "unzip --version",
+        "action" : "Comprobar si existe los paquetes unzip, wget",
+        "command" : null,
         "command_alternative" : null,
         "required_output" : true,
         "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
+            "name" : "--execute-all-commands",
+            "param" : ["unzip --version", "wget --version"]
         },
-        "warning" : "Si el paquete UNZIP no existe en su sistema favor de instalarlo"
-    },
-    {
-        "action" : "Comprobar si existe el paquete WGET",
-        "command" : "wget --version",
-        "command_alternative" : null,
-        "required_output" : true,
-        "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
-        },
-        "warning" : "Si el paquete WGET no existe en su SO favor de descargarlo"
+        "warning" : null
     },
     {
         "action" : "Descargar ADB",

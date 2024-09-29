@@ -1,51 +1,18 @@
 [
     {
-        "action" : "Comprobar si existe el paquete CURL",
-        "command" : "curl --version",
+        "action" : "Comprobar si existe los paquetes unzip, wget, curl, java",
+        "command" : null,
         "command_alternative" : null,
         "required_output" : true,
         "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
+            "name" : "--execute-all-commands",
+            "param" : ["unzip --version", "wget --version", "curl --version", "java -version"]
         },
-        "warning" : "Si el paquete CURL no existe en su SO favor de descargarlo"
-    },
-    {
-        "action" : "Comprobar si existe el paquete WGET",
-        "command" : "wget --version",
-        "command_alternative" : null,
-        "required_output" : true,
-        "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
-        },
-        "warning" : "Si el paquete WGET no existe en su SO favor de descargarlo"
-    },
-    {
-        "action" : "Comprobar si existe el paquete UNZIP",
-        "command" : "unzip --version",
-        "command_alternative" : null,
-        "required_output" : true,
-        "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
-        },
-        "warning" : "Si el paquete UNZIP no existe en su sistema favor de instalarlo"
-    },
-    {
-        "action" : "Comprobar si existe el paquete Java",
-        "command" : "java -version",
-        "command_alternative" : null,
-        "required_output" : true,
-        "extra" : {
-            "name" : "--pkg-exists",
-            "param" : null
-        },
-        "warning" : "Se requiere JAVA para instalar Gradle"
+        "warning" : "Se requiere que Java este instalado en su sistema"
     },
     {
         "action" : "Obtener versiones disponibles de Gradle",
-        "command" : "  versions=($(curl -s https://raw.githubusercontent.com/gradle/gradle/master/released-versions.json | grep -oP '\"version\":\\s*\"\\K[0-9.]+' | head -n 20));   printf '%s\\n' \"${versions[@]}\"  ",
+        "command" : "  bash files/gradle-versions.sh  ",
         "command_alternative" : null,
         "required_output" : true,
         "extra" : {
