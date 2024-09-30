@@ -57,7 +57,7 @@ def apply(instructions, manager: str):
             elif extra['name'] == '--pkg-exists':
 
                 if not isinstance(output, list):
-                    Printing.warning("Se requiere una dependencia que no existe en su Sistema")
+                    Printing.warning("Se requiere una dependencia que no existe en su sistema")
                     exit()
 
             # Permite ejecutar multiples comandos y requiere que todos sean executados correctamente

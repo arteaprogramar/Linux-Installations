@@ -46,12 +46,12 @@
     },
     {
         "name" : "Instalación de YAY Helper",
-        "manager" : ["dnf"],
+        "manager" : ["pacman"],
         "actions" : "pkg/yay.json"
     },
     {
-        "name" : "Instalación de Google Chrome & Microsoft Edge",
-        "manager" : ["pacman"],
+        "name" : "Instalación de Google Chrome & Microsoft Edge x64",
+        "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/browser.json"
     }
 ]

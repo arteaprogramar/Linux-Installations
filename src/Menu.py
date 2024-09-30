@@ -14,7 +14,7 @@ def show(title : str, list):
 
     for index, item in enumerate(list):
         value = item['name'] if 'name' in item else list[index]
-        print(f"Para {value} ingrese : \033[1m{index}\033[0m")
+        print(f"[\033[1m{index}\033[0m] {value}")
 
     continue_menu = True
 
