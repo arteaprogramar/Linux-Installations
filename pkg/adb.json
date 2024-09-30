@@ -6,7 +6,7 @@
         "required_output" : true,
         "extra" : {
             "name" : "--execute-all-commands",
-            "param" : ["unzip --version", "wget --version"]
+            "param" : ["unzip --help", "wget --version"]
         },
         "warning" : null
     },

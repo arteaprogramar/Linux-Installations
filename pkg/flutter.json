@@ -6,7 +6,7 @@
         "required_output" : true,
         "extra" : {
             "name" : "--execute-all-commands",
-            "param" : ["bash --version", "curl --version", "file --version", "git --version", "mkdir --version", "rm --version", "which --version", "cmake --version", "clang --version", "unzip --version"]
+            "param" : ["bash --version", "curl --version", "file --version", "git --version", "mkdir --version", "rm --version", "which --version", "cmake --version", "clang --version", "unzip --help"]
         },
         "warning" : null
     },

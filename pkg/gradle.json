@@ -6,7 +6,7 @@
         "required_output" : true,
         "extra" : {
             "name" : "--execute-all-commands",
-            "param" : ["unzip --version", "wget --version", "curl --version", "java -version"]
+            "param" : ["unzip --help", "wget --version", "curl --version", "java -version"]
         },
         "warning" : "Se requiere que Java este instalado en su sistema"
     },
