@@ -43,5 +43,15 @@
         "name" : "Instalación de dotNet SDK & Runtime",
         "manager" : ["gnu"],
         "actions" : "pkg/dotnet.json"
+    },
+    {
+        "name" : "Instalación de YAY Helper",
+        "manager" : ["dnf"],
+        "actions" : "pkg/yay.json"
+    },
+    {
+        "name" : "Instalación de Google Chrome & Microsoft Edge",
+        "manager" : ["pacman"],
+        "actions" : "pkg/browser.json"
     }
 ]
