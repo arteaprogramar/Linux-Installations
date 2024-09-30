@@ -3,9 +3,7 @@
 versions=("6" "7" "8")
 
 if [ -z "$1" ]; then
-    echo "Descargar .NET Script"
-
-    wget https://dot.net/v1/dotnet-install.sh -P temp
+    wget https://dot.net/v1/dotnet-install.sh -P temp  > /dev/null 2>&1
     chmod +x temp/dotnet-install.sh
 
     printf '%s\n' "${versions[@]}"
