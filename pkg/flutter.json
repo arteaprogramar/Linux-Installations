@@ -74,7 +74,7 @@
     },
     {
         "action" : "Agregar al PATH de Linux y dar permisos de ejecución a Flutter",
-        "command" : "sudo cp files/path-flutter.sh /etc/profile.d/flutter.sh; sudo chmod +x /etc/profile.d/flutter.sh",
+        "command" : "sudo cp files/flutter-path.sh /etc/profile.d/flutter.sh; sudo chmod +x /etc/profile.d/flutter.sh",
         "command_alternative" : null,
         "required_output" : false,
         "extra" : null,

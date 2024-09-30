@@ -50,7 +50,7 @@
     },
     {
         "action" : "Agregar al PATH de Linux y dar permisos de ejecución a Gradle",
-        "command" : "sudo cp files/path-gradle.sh /etc/profile.d/gradle.sh; sudo chmod +x /etc/profile.d/gradle.sh",
+        "command" : "sudo cp files/gradle-path.sh /etc/profile.d/gradle.sh; sudo chmod +x /etc/profile.d/gradle.sh",
         "command_alternative" : null,
         "required_output" : false,
         "extra" : null,

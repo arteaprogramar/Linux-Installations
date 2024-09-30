@@ -38,5 +38,10 @@
         "name" : "Instalación de Flutter",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/flutter.json"
+    },
+    {
+        "name" : "Instalación de dotNet SDK & Runtime",
+        "manager" : ["gnu"],
+        "actions" : "pkg/dotnet.json"
     }
 ]

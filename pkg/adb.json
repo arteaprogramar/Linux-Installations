@@ -39,7 +39,7 @@
     },
     {
         "action" : "Agrega al PATH de Linux el ADB y darle permisos de ejecución",
-        "command" : "sudo cp files/path-adb.sh /etc/profile.d/adb.sh; sudo chmod +x /etc/profile.d/adb.sh",
+        "command" : "sudo cp files/adb-path.sh /etc/profile.d/adb.sh; sudo chmod +x /etc/profile.d/adb.sh",
         "command_alternative" : null,
         "required_output" : false,
         "extra" : null,
