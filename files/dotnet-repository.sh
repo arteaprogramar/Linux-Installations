@@ -1,6 +1,6 @@
 #!/bin/sh
 
-versions=("6" "7" "8", "9")
+versions=("6" "7" "8" "9")
 
 if [ -z "$1" ]; then
     wget https://dot.net/v1/dotnet-install.sh -P temp  > /dev/null 2>&1
