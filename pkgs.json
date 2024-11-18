@@ -58,5 +58,10 @@
         "name" : "Instalación de Firefox sin snap en Debian y Ubuntu",
         "manager" : ["apt"],
         "actions" : "pkg/firefox.json"
+    },
+    {
+        "name" : "Cancelador de Ruido para Pipewire",
+        "manager" : ["gnu"],
+        "actions" : "pkg/noise_suppression.json"
     }
 ]
