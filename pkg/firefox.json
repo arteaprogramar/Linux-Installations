@@ -1,0 +1,24 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes wget",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["wget --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Firefox",
+        "command" : "  bash files/firefox.sh  ",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "Lista de versiones disponibles",
+            "param" : null
+        },
+        "warning" : null
+    }
+]

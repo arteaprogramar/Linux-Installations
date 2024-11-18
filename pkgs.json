@@ -53,5 +53,10 @@
         "name" : "Instalación de Google Chrome & Microsoft Edge x64",
         "manager" : ["dnf", "pacman", "apt"],
         "actions" : "pkg/browser.json"
+    },
+    {
+        "name" : "Instalación de Firefox sin snap en Debian y Ubuntu",
+        "manager" : ["apt"],
+        "actions" : "pkg/firefox.json"
     }
 ]

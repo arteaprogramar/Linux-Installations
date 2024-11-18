@@ -1,5 +1,16 @@
 [
     {
+        "action" : "Comprobar si existe los paquetes wget, curl",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["wget --version", "curl --version"]
+        },
+        "warning" : null
+    },
+    {
         "action" : "Instalación de Google Chrome & Microsoft Edge",
         "command" : null,
         "command_alternative" : {
