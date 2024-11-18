@@ -1,0 +1,29 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes git",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["git --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descargar e instalar YAY",
+        "command" : "cd temp; git clone https://aur.archlinux.org/yay.git; cd yay; makepkg -si --noconfirm",
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Obtener versión de YAY",
+        "command" : "yay --version",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]

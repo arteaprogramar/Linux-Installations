@@ -1,0 +1,62 @@
+[
+    {
+        "name" : "Instalación de ADB",
+        "manager" : ["gnu"],
+        "actions" : "pkg/adb.json"
+    },
+    {
+        "name" : "Instalación de Java",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/java.json"
+    },
+    {
+        "name" : "Instalación de Gradle",
+        "manager" : ["gnu"],
+        "actions" : "pkg/gradle.json"
+    },
+    {
+        "name" : "Instalación de Postman x64",
+        "manager" : ["gnu"],
+        "actions" : "pkg/postman.json"
+    },
+    {
+        "name" : "Instalación de PHP",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/php.json"
+    },
+    {
+        "name" : "Instalación de NodeJS",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/node.json"
+    },
+    {
+        "name" : "Instalación de Media Transfer Protocol",
+        "manager" : ["pacman"],
+        "actions" : "pkg/mtp.json"
+    },
+    {
+        "name" : "Instalación de Flutter",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/flutter.json"
+    },
+    {
+        "name" : "Instalación de dotNet SDK & Runtime",
+        "manager" : ["gnu"],
+        "actions" : "pkg/dotnet.json"
+    },
+    {
+        "name" : "Instalación de YAY Helper",
+        "manager" : ["pacman"],
+        "actions" : "pkg/yay.json"
+    },
+    {
+        "name" : "Instalación de Google Chrome & Microsoft Edge x64",
+        "manager" : ["dnf", "pacman", "apt"],
+        "actions" : "pkg/browser.json"
+    },
+    {
+        "name" : "Instalación de Firefox sin snap en Debian y Ubuntu",
+        "manager" : ["apt"],
+        "actions" : "pkg/firefox.json"
+    }
+]

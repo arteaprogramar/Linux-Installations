@@ -1,0 +1,25 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes wget, curl",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["wget --version", "curl --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Google Chrome & Microsoft Edge",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "bash files/browser.sh dnf",
+            "apt" : "bash files/browser.sh apt",
+            "pacman" : "bash files/browser.sh yay"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]

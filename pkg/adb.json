@@ -1,0 +1,64 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes unzip, wget",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["unzip --help", "wget --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descargar ADB",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://dl.google.com/android/repository/platform-tools-latest-linux.zip"
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "unzip temp/platform-tools-latest-linux.zip -d temp",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a OPT",
+        "command" : "sudo mv temp/platform-tools /opt/platform-tools",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Agrega al PATH de Linux el ADB y darle permisos de ejecución",
+        "command" : "sudo cp files/adb-path.sh /etc/profile.d/adb.sh; sudo chmod +x /etc/profile.d/adb.sh",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Se require su contraseña para aplicar el comando '$ source /etc/profile.d/adb.sh'",
+        "command" : "su -c 'source /etc/profile.d/adb.sh' root",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "En caso de no ingresar de manera exitosa su contraseña, favor de ejecutar manualmente $ source /etc/profile.d/adb.sh"
+    },
+    {
+        "action" : "En algunas distribuciones requiere reiniciar el sistema",
+        "command" : "/opt/platform-tools/adb --version",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]

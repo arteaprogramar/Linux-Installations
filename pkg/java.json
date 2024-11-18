@@ -1,0 +1,49 @@
+[
+    {
+        "action" : "Actualizar sistema",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "sudo dnf -y upgrade",
+            "apt" : "sudo apt update; sudo apt -y upgrade",
+            "pacman" : "sudo pacman -Syu --noconfirm"
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Versiones disponibles de Java",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   dnf search openjdk | awk -v arch=$(uname -m) '$0 ~ \"openjdk\\\\.\" arch {split($1, a, \"-\"); print a[1] \"-\" a[2]}'   ",
+            "apt" : "   apt-cache search openjdk | awk '$0 ~ \"[0-9]{1,2}-jdk -\" { split($1, a, \"-\"); print a[1] \"-\" a[2] }'   ",
+            "pacman" : "   pacman -Ss jre | grep -E jre'([0-9]{0,2})'-openjdk'\\s[0-9]{1,2}' | awk -F '[-]' '{print $1}' | awk -F 'jre' '{print $2}'   "
+        },
+        "required_output" : true,
+        "extra" : {
+            "name" : "Lista de versiones disponibles de Java",
+            "param" : null
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Instalación de Java",
+        "command" : null,
+        "command_alternative" : {
+            "dnf" : "   sudo dnf -y install {version}-openjdk {version}-openjdk-devel {version}-openjdk-headless {version}-openjdk-javadoc   ",
+            "apt" : "   sudo apt -y install {version}-jdk {version}-jre version}-doc   ",
+            "pacman" : "   pacman -S jre{version}-openjdk jdk{version}-openjdk --noconfirm   "
+        },
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Verificar Java",
+        "command" : "java -version",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    }
+]

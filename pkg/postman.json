@@ -1,0 +1,56 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes tar, wget",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["tar --version", "wget --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descargar Postman x64",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://dl.pstmn.io/download/latest/linux_64"
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "tar zxvf temp/linux_64 --directory temp",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a OPT",
+        "command" : "sudo mv temp/Postman /opt/Postman",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Crear entrada Postman 'postman.desktop'",
+        "command" : "sudo cp files/postman.desktop ~/.local/share/applications/Postman.desktop",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Nota: Asegurese de tener instalado openssl en su ordenador",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "https://learning.postman.com/docs/getting-started/installation/installation-and-updates/#linux-installation-notes"
+    }
+]
