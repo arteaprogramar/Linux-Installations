@@ -1,0 +1,64 @@
+[
+    {
+        "action" : "Comprobar si existe los paquetes wget, curl",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : true,
+        "extra" : {
+            "name" : "--execute-all-commands",
+            "param" : ["wget --version", "curl --version", "pipewire --version"]
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descargar Noise Suppression",
+        "command" : null,
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : {
+            "name" : "--download",
+            "param" : "https://github.com/werman/noise-suppression-for-voice/releases/download/v1.10/linux-rnnoise.zip"
+        },
+        "warning" : null
+    },
+    {
+        "action" : "Descomprimir archivo",
+        "command" : "unzip temp/linux-rnnoise.zip",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Mover a LADSPA",
+        "command" : "sudo mkdir -p /usr/lib64/ladspa; sudo cp temp/linux-rnnoise/ladspa/librnnoise_ladspa.so /usr/lib64/ladspa",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Crear archivo de congfiguración para el cancelador mediante Pipewire",
+        "command" : "mkdir -p ~/.config/pipewire/pipewire.conf.d; cp files/noise-suppression-99-input-denoising.conf ~/.config/pipewire/pipewire.conf.d/99-input-denoising.conf",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Reiniciar servicio de Pipewire para mostrar el cancelador como nuevo metodo de entrada en ajustes",
+        "command" : "systemctl restart --user pipewire.service",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : null
+    },
+    {
+        "action" : "Verificar estado del servicio Pipewire",
+        "command" : "systemctl status --user pipewire.service",
+        "command_alternative" : null,
+        "required_output" : false,
+        "extra" : null,
+        "warning" : "En caso de que el servicio no este activo por algún error se recomienda borrar la carpeta '~/.config/pipewire/pipewire.conf.d' y reiniciar el servicio"
+    }
+]
