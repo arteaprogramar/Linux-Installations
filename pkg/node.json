@@ -15,7 +15,7 @@
         "command" : null,
         "command_alternative" : {
             "dnf" : "sudo dnf -y install nodejs",
-            "apt" : "sudo curl -sL https://deb.nodesource.com/setup_22.x -o /tmp/nodesource_setup.sh; sudo bash /tmp/nodesource_setup.sh; sudo apt update; sudo apt install -y nodejs ",
+            "apt" : "sudo curl -sL https://deb.nodesource.com/setup_23.x -o /tmp/nodesource_setup.sh; sudo bash /tmp/nodesource_setup.sh; sudo apt update; sudo apt install -y nodejs ",
             "pacman" : "pacman -S nodejs npm --noconfirm"
         },
         "required_output" : false,
