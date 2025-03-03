@@ -23,7 +23,7 @@
     },
     {
         "action" : "Descomprimir archivo",
-        "command" : "unzip temp/linux-rnnoise.zip",
+        "command" : "unzip temp/linux-rnnoise.zip -d temp",
         "command_alternative" : null,
         "required_output" : false,
         "extra" : null,
